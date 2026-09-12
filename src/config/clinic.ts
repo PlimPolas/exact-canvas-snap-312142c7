@@ -187,6 +187,9 @@ export const smileCases: SmileCase[] = [
   { caseNumber: "02", beforeImage: case2Before.url, afterImage: case2After.url },
   { caseNumber: "03", beforeImage: case3Before.url, afterImage: case3After.url },
   { caseNumber: "04", beforeImage: case4Before.url, afterImage: case4After.url },
+  { caseNumber: "05", beforeImage: case5Before.url, afterImage: case5After.url },
+  { caseNumber: "06", beforeImage: case6Before.url, afterImage: case6After.url },
+  { caseNumber: "07", beforeImage: case7Before.url, afterImage: case7After.url },
 ];
 
 export const about = {
