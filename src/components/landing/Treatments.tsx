@@ -7,10 +7,10 @@ import {
   Sparkles,
   Stethoscope,
 } from "lucide-react";
-import { treatmentFilters, treatments, urgencyCard, clinic } from "@/config/clinic";
+import { treatmentFilters, treatments } from "@/config/clinic";
 import type { TreatmentCategory } from "@/config/clinic";
 import { useBooking } from "./booking-context";
-import { Badge, PulseDot, SectionHeader, btnWhatsapp } from "./ui-kit";
+import { Badge, SectionHeader } from "./ui-kit";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { CoverflowCarousel } from "./CoverflowCarousel";
