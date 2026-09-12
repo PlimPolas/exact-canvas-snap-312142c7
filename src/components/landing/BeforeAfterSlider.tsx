@@ -73,16 +73,17 @@ export function BeforeAfterSlider({ caseNumber, beforeImage, afterImage, priorit
           draggable={false}
           className="absolute inset-0 size-full object-cover"
         />
-        <div className="absolute inset-y-0 left-0 overflow-hidden" style={{ width: `${position}%` }}>
-          <div className="absolute inset-y-0 left-0 h-full" style={{ width: containerRef.current?.clientWidth ?? "100%" }}>
-            <img
-              src={beforeImage}
-              alt={`Before dental result — Case ${caseNumber}`}
-              loading={priority ? "eager" : "lazy"}
-              draggable={false}
-              className="size-full object-cover"
-            />
-          </div>
+        <div
+          className="absolute inset-0"
+          style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
+        >
+          <img
+            src={beforeImage}
+            alt={`Before dental result — Case ${caseNumber}`}
+            loading={priority ? "eager" : "lazy"}
+            draggable={false}
+            className="absolute inset-0 size-full object-cover"
+          />
         </div>
 
         <span className={cn(labelClass, "left-3 sm:left-4")}>Before</span>
