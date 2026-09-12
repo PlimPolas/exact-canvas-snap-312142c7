@@ -1,4 +1,3 @@
-import { useCallback, useState } from "react";
 import {
   ArrowRight,
   Microscope,
@@ -7,8 +6,7 @@ import {
   Sparkles,
   Stethoscope,
 } from "lucide-react";
-import { treatmentFilters, treatments } from "@/config/clinic";
-import type { TreatmentCategory } from "@/config/clinic";
+import { treatments } from "@/config/clinic";
 import { useBooking } from "./booking-context";
 import { Badge, SectionHeader } from "./ui-kit";
 import { cn } from "@/lib/utils";
@@ -27,11 +25,7 @@ const treatmentCardWidth = (width: number) =>
   Math.min(Math.max(width * (width < 640 ? 0.78 : width < 1024 ? 0.48 : 0.31), 250), 430);
 
 export function Treatments() {
-  const [filter, setFilter] = useState<TreatmentCategory | "all">("all");
   const { openBooking } = useBooking();
-
-  const visible = treatments.filter((t) => filter === "all" || t.category === filter);
-  const selectFilter = useCallback((value: TreatmentCategory | "all") => setFilter(value), []);
 
   return (
     <section id="services" className="scroll-mt-24 bg-surface-alt px-4 py-16 sm:px-8 lg:px-16 lg:py-24">
@@ -42,27 +36,9 @@ export function Treatments() {
           desc="Veneers to full mouth reconstruction — designed and delivered by Dr. Daniele Green."
         />
 
-        <div className="mt-8 flex snap-x gap-2.5 overflow-x-auto pb-2 lg:flex-wrap lg:justify-center lg:overflow-visible">
-          {treatmentFilters.map((item) => (
-            <button
-              key={item.value}
-              type="button"
-              onClick={() => selectFilter(item.value)}
-              className={cn(
-                "shrink-0 snap-start rounded-full border px-4 py-2.5 font-heading text-[0.8125rem] font-bold transition-all",
-                filter === item.value
-                  ? "border-transparent gradient-primary text-primary-foreground shadow-glow-sm"
-                  : "border-border bg-background text-text-secondary hover:border-primary hover:text-primary",
-              )}
-            >
-              {item.label}
-            </button>
-          ))}
-        </div>
-
         <div className="mt-8">
           <CoverflowCarousel
-            items={visible}
+            items={treatments}
             getKey={(treatment) => treatment.title}
             getLabel={(treatment) => `${treatment.title} — ${treatment.tag}`}
             ariaLabel="Services offered"
