@@ -14,7 +14,7 @@ export function CtaBanner() {
           <PulseDot className="text-success" />
           Now accepting new patients
         </div>
-        <h2 className="max-w-[760px] font-heading text-[clamp(1.75rem,4.5vw,3rem)] font-extrabold leading-[1.1] text-white">
+        <h2 className="max-w-[760px] font-serif text-[clamp(2rem,5vw,3.5rem)] font-normal leading-[1.08] text-white">
           Ready to Design Your New Smile?
         </h2>
         <p className="max-w-[620px] text-[0.9375rem] leading-relaxed text-white/60 lg:text-base">

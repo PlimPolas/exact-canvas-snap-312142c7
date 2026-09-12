@@ -5,9 +5,8 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * VITALIS DENTAL MASTER SYSTEM
- * Todos os valores de cor, tipografia e sombra são tokens semânticos.
- * Para trocar a identidade de outra clínica, altere apenas :root.
+ * COASTAL SMILES NEWPORT BEACH — DESIGN SYSTEM
+ * All color, type and shadow values are semantic tokens defined in :root.
  */
 
 @theme inline {
@@ -45,7 +44,6 @@
   --color-text-muted: var(--text-muted);
   --color-success: var(--success);
   --color-warning: var(--warning);
-  --color-whatsapp: var(--whatsapp);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
@@ -56,52 +54,51 @@
 :root {
   --radius: 0.875rem;
 
-  --font-heading-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --font-heading-family: "Jost", system-ui, -apple-system, sans-serif;
   --font-body-family: "Inter", system-ui, -apple-system, sans-serif;
-  --font-serif-family: "Playfair Display", Georgia, serif;
+  --font-serif-family: "Cormorant Garamond", Georgia, serif;
 
   --background: #ffffff;
-  --foreground: #0f172a;
+  --foreground: #111214;
   --card: #ffffff;
-  --card-foreground: #0f172a;
+  --card-foreground: #111214;
   --popover: #ffffff;
-  --popover-foreground: #0f172a;
+  --popover-foreground: #111214;
 
-  --primary: #0284c7;
+  --primary: #17181b;
   --primary-foreground: #ffffff;
-  --primary-light: #38bdf8;
-  --primary-dark: #0369a1;
-  --primary-rgb: 2, 132, 199;
+  --primary-light: #b3b8c0;
+  --primary-dark: #000000;
+  --primary-rgb: 23, 24, 27;
 
-  --secondary: #f1f5f9;
-  --secondary-foreground: #0f172a;
-  --muted: #f8fafc;
-  --muted-foreground: #64748b;
-  --accent: #06b6d4;
+  --secondary: #f4f3f0;
+  --secondary-foreground: #111214;
+  --muted: #faf9f7;
+  --muted-foreground: #6b6f76;
+  --accent: #9aa0a8;
   --accent-foreground: #ffffff;
 
-  --deep: #090e17;
-  --surface-alt: #f1f5f9;
-  --text-secondary: #475569;
-  --text-muted: #94a3b8;
+  --deep: #0b0b0d;
+  --surface-alt: #f5f4f1;
+  --text-secondary: #55585e;
+  --text-muted: #9a9ea6;
 
-  --success: #10b981;
-  --warning: #f59e0b;
-  --whatsapp: #25d366;
-  --destructive: #ef4444;
+  --success: #3f8f6b;
+  --warning: #b08d57;
+  --destructive: #b3261e;
   --destructive-foreground: #ffffff;
 
-  --border: #e2e8f0;
-  --input: #e2e8f0;
-  --ring: #0284c7;
+  --border: #e5e3de;
+  --input: #e5e3de;
+  --ring: #17181b;
 
-  --gradient-primary: linear-gradient(135deg, #0284c7 0%, #06b6d4 100%);
-  --gradient-hero-dark: linear-gradient(135deg, #090e17 0%, #0c4a6e 55%, #083344 100%);
+  --gradient-primary: linear-gradient(135deg, #17181b 0%, #4a4f57 55%, #8d939b 100%);
+  --gradient-hero-dark: linear-gradient(135deg, #0b0b0d 0%, #1b1d21 55%, #33373d 100%);
 
-  --shadow-soft: 0 4px 18px rgba(15, 23, 42, 0.07), 0 2px 6px rgba(15, 23, 42, 0.04);
-  --shadow-strong: 0 14px 44px rgba(15, 23, 42, 0.1), 0 4px 14px rgba(15, 23, 42, 0.06);
-  --shadow-glow-sm: 0 0 22px rgba(2, 132, 199, 0.2);
-  --shadow-glow: 0 0 45px rgba(2, 132, 199, 0.28), 0 0 90px rgba(2, 132, 199, 0.12);
+  --shadow-soft: 0 4px 18px rgba(17, 18, 20, 0.06), 0 2px 6px rgba(17, 18, 20, 0.04);
+  --shadow-strong: 0 14px 44px rgba(17, 18, 20, 0.1), 0 4px 14px rgba(17, 18, 20, 0.06);
+  --shadow-glow-sm: 0 0 22px rgba(17, 18, 20, 0.12);
+  --shadow-glow: 0 0 45px rgba(17, 18, 20, 0.16), 0 0 90px rgba(17, 18, 20, 0.08);
 }
 
 @layer base {
@@ -130,7 +127,7 @@
   }
 
   ::selection {
-    background: rgba(2, 132, 199, 0.22);
+    background: rgba(17, 18, 20, 0.14);
   }
 }
 
@@ -200,21 +197,21 @@
 /* Hero: overlay atmosférico + zoom lento do vídeo */
 .hero-overlay {
   background:
-    radial-gradient(120% 90% at 12% 60%, color-mix(in oklab, #0b2233 72%, transparent) 0%, transparent 68%),
+    radial-gradient(120% 90% at 12% 60%, color-mix(in oklab, #0b0b0d 74%, transparent) 0%, transparent 68%),
     linear-gradient(90deg, color-mix(in oklab, var(--deep) 86%, transparent) 0%, color-mix(in oklab, var(--deep) 58%, transparent) 50%, color-mix(in oklab, var(--deep) 18%, transparent) 100%),
     linear-gradient(0deg, color-mix(in oklab, var(--deep) 62%, transparent) 0%, transparent 45%, color-mix(in oklab, var(--deep) 26%, transparent) 100%);
 }
 
 .hero-title {
-  font-family: var(--font-body-family);
-  color: #eef4f9;
-  letter-spacing: -0.022em;
+  font-family: var(--font-serif-family);
+  color: #f6f5f2;
+  letter-spacing: -0.012em;
   text-shadow: 0 1px 30px rgba(6, 18, 30, 0.45);
 }
 
 .hero-accent {
-  color: #bfe4f7;
-  background-image: linear-gradient(100deg, #e6f6ff 0%, #9fd8f2 45%, var(--primary-light) 100%);
+  color: #d8dce1;
+  background-image: linear-gradient(100deg, #ffffff 0%, #d5d9de 45%, #9aa0a8 100%);
   -webkit-background-clip: text;
   background-clip: text;
 }
@@ -234,7 +231,7 @@
 @media (max-width: 767px) {
   .hero-overlay {
     background:
-      radial-gradient(120% 70% at 50% 78%, color-mix(in oklab, #0b2233 70%, transparent) 0%, transparent 70%),
+      radial-gradient(120% 70% at 50% 78%, color-mix(in oklab, #0b0b0d 72%, transparent) 0%, transparent 70%),
       linear-gradient(0deg, color-mix(in oklab, var(--deep) 88%, transparent) 0%, color-mix(in oklab, var(--deep) 56%, transparent) 62%, color-mix(in oklab, var(--deep) 34%, transparent) 100%);
   }
 }

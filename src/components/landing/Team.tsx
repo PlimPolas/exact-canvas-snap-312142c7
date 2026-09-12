@@ -31,7 +31,7 @@ export function Team() {
 
           <div className="flex flex-col items-start gap-5">
             <Badge>{about.badge}</Badge>
-            <h2 className="font-heading text-[clamp(1.75rem,3.6vw,2.75rem)] font-extrabold leading-[1.12] text-foreground">
+            <h2 className="font-serif text-[clamp(2rem,4.2vw,3.25rem)] font-normal leading-[1.08] tracking-[-0.01em] text-foreground">
               {about.title}
             </h2>
             <span className="font-heading text-[0.8125rem] font-bold uppercase tracking-[0.1em] text-primary">
