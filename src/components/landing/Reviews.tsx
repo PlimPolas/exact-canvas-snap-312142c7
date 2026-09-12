@@ -4,12 +4,12 @@ import { SectionHeader } from "./ui-kit";
 
 export function Reviews() {
   return (
-    <section id="depoimentos" className="scroll-mt-24 bg-surface-alt px-4 py-16 sm:px-8 lg:px-16 lg:py-24">
+    <section id="reviews" className="scroll-mt-24 bg-surface-alt px-4 py-16 sm:px-8 lg:px-16 lg:py-24">
       <div className="mx-auto w-full max-w-[1440px]">
         <SectionHeader
-          badge="Avaliações"
-          title="Mais de 2.400 pacientes avaliaram nossa clínica"
-          desc="Nota 5.0 no Google, construída atendimento após atendimento."
+          badge="Patient Reviews"
+          title="A 4.9-star reputation in Newport Beach"
+          desc="What patients say about care with Dr. Daniele Green."
         />
 
         <div className="mt-10 grid gap-5 md:grid-cols-3">

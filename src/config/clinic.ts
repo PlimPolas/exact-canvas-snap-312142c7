@@ -1,247 +1,283 @@
 /**
- * CENTRAL DE PERSONALIZAÇÃO DA CLÍNICA
- * Altere apenas este arquivo para adaptar o site a outra clínica odontológica.
+ * CLINIC CONTENT SOURCE OF TRUTH
+ * Coastal Smiles Newport Beach — Dr. Daniele Green, DDS
  */
 
-import doctor1 from "@/assets/doctor-1.jpg";
-import doctor2 from "@/assets/doctor-2.jpg";
-import doctor3 from "@/assets/doctor-3.jpg";
-import doctor4 from "@/assets/doctor-4.jpg";
-import doctor5 from "@/assets/doctor-5.jpg";
-import doctor6 from "@/assets/doctor-6.jpg";
-import doctor7 from "@/assets/doctor-7.jpg";
 import infra1 from "@/assets/infra-1.jpg";
 import infra2 from "@/assets/infra-2.jpg";
 import infra3 from "@/assets/infra-3.jpg";
 import infra4 from "@/assets/infra-4.jpg";
 import smileBefore from "@/assets/smile-before.jpg";
 import smileAfter from "@/assets/smile-after.jpg";
-import heroPoster from "@/assets/hero-poster.jpg";
-import heroVideoAsset from "@/assets/hero-video.mp4.asset.json";
+import heroPoster from "@/assets/hero-coastal.jpg";
+import drPortrait from "@/assets/dr-portrait.jpg";
 
 export const clinic = {
-  name: "Instituto Oral Premium",
-  shortName: "Oral Premium",
-  tagline: "A precisão da odontologia moderna",
-  city: "Savassi, Belo Horizonte - MG",
-  address: "Av. Getúlio Vargas, 1649 · Savassi, Belo Horizonte - MG",
-  phoneLabel: "(31) 9 9736-7514",
-  phoneHref: "tel:+5531997367514",
-  whatsapp: "5531997367514",
-  whatsappUrl:
-    "https://wa.me/5531997367514?text=Ol%C3%A1%2C%20estou%20no%20site%20e%20gostaria%20de%20informa%C3%A7%C3%B5es",
-  whatsappUrgency:
-    "https://wa.me/5531997367514?text=Preciso%20de%20atendimento%20urgente%20no%20dentista",
+  name: "Coastal Smiles Newport Beach",
+  shortName: "Coastal Smiles",
+  tagline: "Personalized concierge cosmetic dentistry",
+  city: "Newport Beach, California",
+  address: "1401 Avocado Ave, Suite 502 · Newport Beach, CA 92660",
+  streetAddress: "1401 Avocado Ave, Suite 502",
+  locality: "Newport Beach",
+  region: "CA",
+  postalCode: "92660",
+  phoneLabel: "(949) 640-9554",
+  phoneHref: "tel:+19496409554",
+  email: "info@coastalsmilesdentistry.com",
+  emailHref: "mailto:info@coastalsmilesdentistry.com",
+  instagramClinic: "@coastal_smiles_newport",
+  instagramClinicUrl: "https://instagram.com/coastal_smiles_newport",
+  instagramDoctor: "@drdanielegreen",
+  instagramDoctorUrl: "https://instagram.com/drdanielegreen",
   mapsUrl:
-    "https://maps.google.com/?q=Av.+Get%C3%BAlio+Vargas,+1649,+Savassi,+Belo+Horizonte+-+MG",
-  wazeUrl: "https://waze.com/ul?q=Av.+Get%C3%BAlio+Vargas,+1649,+Belo+Horizonte",
-  technicalManager: "Dr. Jimmy Príncipe Brito de Sá",
-  cro: "CRO-MG 54398",
-  epao: "EPAO nº 7507",
-  hours: "Plantão 24 Horas · Todos os dias, inclusive feriados",
+    "https://maps.google.com/?q=1401+Avocado+Ave+Suite+502,+Newport+Beach,+CA+92660",
+  mapsEmbedUrl:
+    "https://www.google.com/maps?q=1401+Avocado+Ave+Suite+502,+Newport+Beach,+CA+92660&output=embed",
+  dentist: "Dr. Daniele Green, DDS",
+  dentistRole: "Founder & Owner · Cosmetic and General Dentist",
+  hours: "Mon–Thu appointments · Friday mornings",
+  award: "Best Cosmetic Dentist · Best of the City 2025",
 };
+
+export const officeHours = [
+  { day: "Monday", time: "8:00 AM – 5:00 PM" },
+  { day: "Tuesday", time: "8:00 AM – 5:00 PM" },
+  { day: "Wednesday", time: "9:00 AM – 5:00 PM" },
+  { day: "Thursday", time: "9:00 AM – 5:00 PM" },
+  { day: "Friday", time: "8:00 AM – 12:00 PM" },
+];
 
 export const heroContent = {
-  video: heroVideoAsset.url,
   poster: heroPoster,
-  badge: "Atendimento 24 horas · Savassi, Belo Horizonte",
-  title: "Odontologia de precisão",
-  titleAccent: "para um sorriso extraordinário.",
+  badge: "Award-Winning Cosmetic Dentistry in Newport Beach",
+  title: "A Smile Designed",
+  titleAccent: "Around You.",
   subtitle:
-    "Tecnologia avançada, cuidado sem dor e especialistas dedicados a uma experiência odontológica de alto padrão.",
-  primaryCta: "Agendar Avaliação",
-  secondaryCta: "Nossos Tratamentos",
-  trustLine: "Nota 5,0 no Google · mais de 2.400 avaliações",
+    "Personalized concierge dentistry by Dr. Daniele Green, combining advanced digital smile design, artistry, and comprehensive care to create naturally beautiful results.",
+  primaryCta: "Book Your Smile Consultation",
+  secondaryCta: "View Smile Transformations",
+  trustLine: "Best Cosmetic Dentist · Best of the City 2025",
 };
 
-
 export const navLinks = [
-  { label: "Especialidades", href: "#tratamentos" },
-  { label: "Resultados", href: "#antes-depois" },
-  { label: "Corpo Clínico", href: "#equipe" },
-  { label: "Infraestrutura", href: "#tecnologia" },
-  { label: "Avaliações", href: "#depoimentos" },
-  { label: "Contato", href: "#localizacao" },
+  { label: "Services", href: "#services" },
+  { label: "Transformations", href: "#transformations" },
+  { label: "Dr. Green", href: "#about" },
+  { label: "The Studio", href: "#studio" },
+  { label: "Reviews", href: "#reviews" },
+  { label: "Contact", href: "#contact" },
 ];
 
 export const partners = [
-  "Bradesco Dental",
-  "Amil Dental",
-  "SulAmérica Odonto",
-  "Unimed Odontologia",
-  "MetLife Dental",
-  "Porto Seguro",
-  "Invisalign® Diamond Provider",
-  "EPAO Certificada nº 7507",
+  "Best Cosmetic Dentist · Best of the City 2025",
+  "Kois Center Advanced Training",
+  "DDS · Loma Linda University",
+  "Digital Smile Design",
+  "Invisalign",
+  "4.9-Star Google Rating",
+  "Cosmetic & General Dentistry",
+  "Newport Beach, California",
 ];
 
 export const stats = [
-  { value: "+21.378", label: "Urgências Atendidas 24h" },
-  { value: "+2.480", label: "Implantes Dentários Guiados" },
-  { value: "+7.970", label: "Sisos Removidos com Conforto" },
-  { value: "+5.200", label: "Canais Tratados via Microscopia" },
+  { value: "4.9", label: "Google Rating" },
+  { value: "10+", label: "Years in Cosmetic Dentistry" },
+  { value: "2025", label: "Best of the City Award" },
+  { value: "1:1", label: "Concierge-Level Care" },
 ];
 
 export type TreatmentCategory =
-  | "implantes"
-  | "estetica"
-  | "ortodontia"
-  | "endodontia"
-  | "urgencia";
+  | "cosmetic"
+  | "orthodontics"
+  | "restorative"
+  | "general";
 
 export const treatmentFilters: { label: string; value: TreatmentCategory | "all" }[] = [
-  { label: "Todos os Tratamentos", value: "all" },
-  { label: "Implantes & Cirurgia", value: "implantes" },
-  { label: "Estética & Facetas", value: "estetica" },
-  { label: "Invisalign® & Aparelhos", value: "ortodontia" },
-  { label: "Canal sem Dor", value: "endodontia" },
-  { label: "Plantão 24 Horas", value: "urgencia" },
+  { label: "All Services", value: "all" },
+  { label: "Cosmetic", value: "cosmetic" },
+  { label: "Orthodontics", value: "orthodontics" },
+  { label: "Restorative", value: "restorative" },
+  { label: "General", value: "general" },
 ];
 
 export const treatments = [
   {
-    category: "implantes" as TreatmentCategory,
-    tag: "Implantodontia 3D",
-    icon: "tooth",
-    title: "Implantes Guiados & Carga Imediata",
-    text: "Recupere a estabilidade e a estética dos seus dentes sem cortes desnecessários. Utilizamos tomografia tridimensional e guias cirúrgicos impressos em 3D para instalar implantes com precisão milimétrica e pós-operatório sem dor.",
-    footnote: "Dentes fixos em até 24h · Procedimento Guiado",
-    cta: "Agendar Avaliação",
+    category: "cosmetic" as TreatmentCategory,
+    tag: "Signature Service",
+    icon: "sparkles",
+    title: "Porcelain Veneers",
+    text: "Hand-finished porcelain designed around your facial structure, lips and gum line. Natural translucency, natural proportions, and a result that still looks like you.",
+    footnote: "Facially driven design",
+    cta: "Book Consultation",
     featured: true,
   },
   {
-    category: "estetica" as TreatmentCategory,
-    tag: "Estética Premium",
-    icon: "sparkles",
-    title: "Facetas & Lentes de Contato",
-    text: "Lâminas ultrafinas de cerâmica pura com acabamento ultra-natural. Correção de formato, cor e pequenos desalinhamentos preservando a estrutura biológica do dente.",
-    footnote: "Planejamento Digital DSD",
-    cta: "Conhecer",
+    category: "cosmetic" as TreatmentCategory,
+    tag: "Complete Aesthetics",
+    icon: "tooth",
+    title: "Smile Makeovers",
+    text: "A comprehensive aesthetic plan that may combine veneers, whitening, bonding and gum contouring — previewed digitally before any treatment begins.",
+    footnote: "Digital smile preview",
+    cta: "Learn More",
     featured: false,
   },
   {
-    category: "ortodontia" as TreatmentCategory,
-    tag: "Ortodontia Digital",
+    category: "orthodontics" as TreatmentCategory,
+    tag: "Clear Aligners",
     icon: "refresh",
-    title: "Invisalign® & Aparelhos",
-    text: "Alinhadores transparentes e confortáveis que movem seus dentes de forma previsível e discreta. Sem fios metálicos, removíveis para alimentação e higienização.",
-    footnote: "Diamond Doctor",
-    cta: "Ver Mais",
+    title: "Invisalign",
+    text: "Discreet, removable aligners that guide your teeth into balanced alignment, often as the foundation for a longer-term cosmetic plan.",
+    footnote: "Planned in 3D",
+    cta: "Learn More",
     featured: false,
   },
   {
-    category: "estetica" as TreatmentCategory,
-    tag: "Harmonização",
+    category: "cosmetic" as TreatmentCategory,
+    tag: "Brightening",
     icon: "face",
-    title: "Harmonização Orofacial",
-    text: "Equilíbrio e proporção entre dentes, lábios e face. Procedimentos avançados como preenchimento labial, bioestimuladores de colágeno e toxina botulínica terapêutica.",
-    footnote: "Naturalidade & Simetria",
-    cta: "Ver Mais",
+    title: "Professional Teeth Whitening",
+    text: "Supervised in-office and take-home whitening calibrated to your enamel and sensitivity, for a brighter tone that still reads as natural.",
+    footnote: "Shade matched to your face",
+    cta: "Learn More",
     featured: false,
   },
   {
-    category: "endodontia" as TreatmentCategory,
-    tag: "Endodontia",
+    category: "restorative" as TreatmentCategory,
+    tag: "Comprehensive Care",
     icon: "microscope",
-    title: "Tratamento de Canal em 1 Sessão",
-    text: "Microscopia de alta ampliação e instrumentação rotatória automatizada. Realize seu tratamento de canal com total conforto, rapidez e máxima taxa de sucesso.",
-    footnote: "Zero Dor · Sessão Única",
-    cta: "Ver Mais",
+    title: "Full Mouth Reconstruction",
+    text: "Rebuilding function, bite and aesthetics together — porcelain crowns and bridges, implant restorations and TMJ/TMD care, sequenced into one clear plan.",
+    footnote: "Function and aesthetics together",
+    cta: "Learn More",
+    featured: false,
+  },
+  {
+    category: "general" as TreatmentCategory,
+    tag: "Everyday Dentistry",
+    icon: "tooth",
+    title: "General Dentistry & Bonding",
+    text: "Dental bonding, gum contouring, exams, cleanings and preventive care delivered with the same precision and attention as our cosmetic work.",
+    footnote: "Same standard of care",
+    cta: "Learn More",
     featured: false,
   },
 ];
-
-export const urgencyCard = {
-  badge: "Atendimento Imediato Disponível Agora",
-  title: "Urgência Odontológica 24 Horas",
-  text: "Dor de dente aguda, quebra de dentes, traumas bucais, hemorragias ou problemas pós-cirúrgicos. Nossa equipe multidisciplinar está de prontidão contínua na Savassi em Belo Horizonte.",
-};
 
 export const beforeAfter = {
   before: smileBefore,
   after: smileAfter,
 };
 
-export const doctors = [
-  { photo: doctor1, specialty: "Implantodontia & Cirurgia", name: "Dr. Jimmy Príncipe", cro: "CRO-MG 54398" },
-  { photo: doctor2, specialty: "Estética Dental & Prótese", name: "Dra. Letícia Pacheco", cro: "CRO-MG 54453" },
-  { photo: doctor3, specialty: "Ortodontia & Alinhadores", name: "Dra. Cíntia Pontello", cro: "CRO-MG 21563" },
-  { photo: doctor4, specialty: "Endodontia Microscópica", name: "Dra. Raíssa Martins", cro: "CRO-MG 54509" },
-  { photo: doctor5, specialty: "Cirurgia & Traumatologia", name: "Dr. Luís Fernando", cro: "CRO-MG 46402" },
-  { photo: doctor6, specialty: "Harmonização Orofacial", name: "Dra. Anna Carolina", cro: "CRO-MG Especialista" },
-  { photo: doctor7, specialty: "Anestesiologia & Sedação", name: "Dr. Lucas Rezende", cro: "Médico Anestesista Responsável" },
+export const about = {
+  badge: "About",
+  title: "Meet Dr. Daniele Green",
+  portrait: drPortrait,
+  paragraphs: [
+    "Dr. Daniele Green is the founder and owner of Coastal Smiles Newport Beach, a cosmetic and general dentist with advanced training in aesthetic and reconstructive dentistry.",
+    "Born and raised in Rio Grande do Sul, Brazil, she spent the first twenty-one years of her life there before moving to the United States, where she earned her DDS at Loma Linda University. That background still shapes how she works: an artist's eye for proportion, warmth and detail.",
+    "With more than ten years focused on cosmetic dentistry and advanced training at the Kois Center, Dr. Green designs smiles that are personalized and naturally balanced — combining artistry, technology and comprehensive dentistry in a single plan.",
+  ],
+  credentials: [
+    "DDS · Loma Linda University",
+    "Advanced Kois Center training",
+    "10+ years in cosmetic dentistry",
+    "Best Cosmetic Dentist · Best of the City 2025",
+  ],
+};
+
+export const differentiators = [
+  {
+    icon: "face",
+    title: "Facially Driven Smile Design",
+    text: "Smile designs planned around facial structure, lips, gum line and individual proportions.",
+  },
+  {
+    icon: "microscope",
+    title: "Digital Precision",
+    text: "Advanced photography, digital smile design, X-rays, 3D imaging and smile visualization.",
+  },
+  {
+    icon: "sparkles",
+    title: "Concierge-Level Care",
+    text: "Highly personalized treatment planning with the patient actively involved in aesthetic decisions.",
+  },
+  {
+    icon: "award",
+    title: "Award-Winning Expertise",
+    text: "Coastal Smiles Newport Beach was recognized as Best Cosmetic Dentist in Best of the City 2025.",
+  },
 ];
 
 export const infraGallery = [
-  { src: infra1, alt: "Recepção premium da clínica" },
-  { src: infra2, alt: "Sala de espera confortável" },
-  { src: infra3, alt: "Sala cirúrgica com tecnologia avançada" },
-  { src: infra4, alt: "Planejamento digital 3D dos tratamentos" },
+  { src: infra1, alt: "Reception at our Newport Beach studio" },
+  { src: infra2, alt: "Private, calm waiting lounge" },
+  { src: infra3, alt: "Treatment suite with advanced technology" },
+  { src: infra4, alt: "Digital smile design and 3D planning" },
 ];
 
 export const infraHighlights = [
-  "Estacionamento privativo e gratuito com manobrista",
-  "Tomografia 3D e Radiologia Odontológica 24 Horas no próprio local",
-  "Sedação consciente com Óxido Nitroso para total tranquilidade",
+  "Digital smile design and smile visualization before treatment begins",
+  "3D imaging, advanced photography and digital X-rays on site",
+  "One dentist, one plan — continuity of care from consult to final result",
 ];
 
 export const reviews = [
   {
-    initials: "WR",
-    name: "Wemerson Ribeiro",
-    text: "Ótima localização, estrutura aconchegante, recepção realmente Premium. Falando no atendimento com consultórios de excelência. Serviços de qualidade.",
+    initials: "MR",
+    name: "Mary Rafalovich",
+    text: "Dr. Green is highly competent, caring and professional. She is meticulous in her work and has a way of making you feel completely relaxed.",
   },
   {
-    initials: "FS",
-    name: "Francisco Sebastião dos Santos",
-    text: "O Dr. Jimmy, a Dra. Letícia e toda a equipe de apoio merecem nota 10! Em um ambiente muito agradável, sofisticado, moderno e limpo.",
+    initials: "PS",
+    name: "Patrick Sommerfield",
+    text: "An excellent experience from start to finish. My appointment was right on time, the treatment was painless, and the office is exceptionally clean with modern equipment.",
   },
   {
-    initials: "MA",
-    name: "Matheus Araujo",
-    text: "Salvaram minha noite no plantão de urgência. Atendimento rápido, objetivo, eficaz e preço justo. Sou muito grato à clínica!",
+    initials: "DL",
+    name: "Daniel Loo",
+    text: "I have been a patient for years. Dr. Green is thorough and attentive, and her team is every bit as good.",
   },
 ];
 
 export const faq = [
   {
-    q: "Vocês aceitam meu plano odontológico?",
-    a: "Sim! Aceitamos os principais convênios do país, como Bradesco Dental, Amil, SulAmérica, Unimed Odonto, MetLife e Porto Seguro. Entre em contato pelo WhatsApp para verificar as coberturas do seu plano específico.",
+    q: "What happens at a smile consultation?",
+    a: "Dr. Green reviews your goals, examines your teeth, bite and gum line, and captures advanced photography and imaging. From there she walks you through a personalized plan and, where useful, a digital preview of your future smile.",
   },
   {
-    q: "A clínica realmente funciona 24 horas todos os dias?",
-    a: "Sim, nossa equipe de cirurgiões-dentistas e suporte opera 24 horas por dia, 7 dias por semana, inclusive aos sábados, domingos e feriados, para emergências odontológicas com estrutura completa de radiologia no local.",
+    q: "Will my veneers look natural?",
+    a: "That is the entire point of a facially driven design. Shape, length, tone and gum line are planned around your face and lips, so the result reads as your smile rather than a set of teeth.",
   },
   {
-    q: "Quais são as opções de parcelamento de tratamentos?",
-    a: "Facilitamos tratamentos de implantes, lentes de contato e ortodontia em até 18x no cartão de crédito sem juros, além de condições especiais via Pix ou boleto mediante análise.",
+    q: "Do you offer general dentistry as well as cosmetic treatment?",
+    a: "Yes. Alongside cosmetic care, Coastal Smiles provides exams, cleanings, crowns and bridges, implant restorations, TMJ/TMD care and preventive dentistry.",
   },
   {
-    q: "Como funciona a sedação consciente para quem tem fobia de dentista?",
-    a: "Oferecemos sedação inalatória com óxido nitroso e sedação endovenosa acompanhada por médico anestesiologista. O paciente permanece relaxado, sem ansiedade e sem dor durante todo o procedimento.",
+    q: "How long does a smile makeover take?",
+    a: "It depends on the plan. Whitening or bonding can be completed quickly, while veneers, orthodontics or full mouth reconstruction are sequenced over several visits. You will have a clear timeline before treatment begins.",
   },
   {
-    q: "A clínica possui estacionamento no local?",
-    a: "Sim, disponibilizamos estacionamento privativo e totalmente gratuito para todos os pacientes em atendimento, localizado na Av. Getúlio Vargas na Savassi.",
+    q: "How do I schedule?",
+    a: "Call (949) 640-9554 or send your details through the consultation form and our team will follow up to confirm a time that works for you.",
   },
 ];
 
 export const specialtiesOptions = [
-  "Avaliação Geral e Limpeza",
-  "Implantes 3D e Carga Imediata",
-  "Lentes de Contato e Facetas",
-  "Invisalign e Alinhadores",
-  "Harmonização Orofacial",
-  "Canal em Sessão Única",
-  "Urgência Odontológica 24h",
+  "Porcelain Veneers",
+  "Smile Makeovers",
+  "Invisalign",
+  "Professional Teeth Whitening",
+  "Full Mouth Reconstruction",
+  "Porcelain Crowns & Bridges",
+  "Dental Bonding",
+  "Implant Restorations",
+  "Gum Contouring",
+  "TMJ/TMD and General Dentistry",
 ];
 
-export const insuranceOptions = [
-  "Particular / Sem convênio",
-  "Bradesco Dental",
-  "Amil Dental",
-  "SulAmérica Odonto",
-  "Unimed Odontologia",
-  "MetLife Dental",
-  "Porto Seguro",
+export const contactPreferences = [
+  "Phone call",
+  "Email",
+  "Either is fine",
 ];
