@@ -10,12 +10,12 @@ export function Hero() {
     <header
       id="top"
       className="relative flex min-h-[92svh] w-full flex-col overflow-hidden bg-deep"
-      aria-label="Apresentação principal da clínica"
+      aria-label="Coastal Smiles Newport Beach introduction"
     >
       <div className="absolute inset-0 z-1">
         <img
           src={heroContent.poster}
-          alt="Ambiente da clínica"
+          alt="Coastal Smiles Newport Beach treatment suite overlooking the coast"
           className="hero-zoom size-full object-cover object-[54%_center] md:object-center"
         />
         <div className="hero-overlay absolute inset-0 z-2" />
@@ -39,7 +39,7 @@ export function Hero() {
           <div className="animate-hero-in delay-4 mt-10 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:items-center">
             <Button
               type="button"
-              onClick={() => openBooking("Avaliação Geral e Limpeza")}
+              onClick={() => openBooking("Porcelain Veneers")}
               className="h-12 w-full rounded-full px-7 text-sm font-medium tracking-[0.01em] shadow-soft sm:w-auto"
             >
               <CalendarCheck className="size-[1.0625rem]" />
@@ -50,14 +50,14 @@ export function Hero() {
               variant="outline"
               className="group h-12 w-full rounded-full border-primary-foreground/20 bg-transparent px-7 text-sm font-light text-primary-foreground/90 shadow-none hover:border-primary-foreground/40 hover:bg-primary-foreground/8 hover:text-primary-foreground sm:w-auto"
             >
-              <a href="#tratamentos">
+              <a href="#transformations">
                 <span>{heroContent.secondaryCta}</span>
                 <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
               </a>
             </Button>
           </div>
 
-          <div className="animate-hero-in delay-4 mt-10 hidden items-center gap-2 text-[0.8125rem] font-light tracking-[0.01em] text-primary-foreground/55 sm:flex">
+          <div className="animate-hero-in delay-4 mt-10 flex items-center gap-2 text-[0.8125rem] font-light tracking-[0.01em] text-primary-foreground/55">
             <Star className="size-3.5 fill-warning text-warning" />
             <span>{heroContent.trustLine}</span>
           </div>

@@ -34,12 +34,12 @@ export function Treatments() {
   const selectFilter = useCallback((value: TreatmentCategory | "all") => setFilter(value), []);
 
   return (
-    <section id="tratamentos" className="scroll-mt-24 bg-surface-alt px-4 py-16 sm:px-8 lg:px-16 lg:py-24">
+    <section id="services" className="scroll-mt-24 bg-surface-alt px-4 py-16 sm:px-8 lg:px-16 lg:py-24">
       <div className="mx-auto w-full max-w-[1440px]">
         <SectionHeader
-          badge="Especialidades"
-          title="Tratamentos completos em um só lugar"
-          desc="Da urgência noturna ao planejamento estético digital: cada especialidade conduzida por um profissional dedicado, com tecnologia de ponta e protocolos sem dor."
+          badge="Services"
+          title="Cosmetic and comprehensive dentistry, under one plan"
+          desc="From porcelain veneers to full mouth reconstruction, every treatment is designed and delivered personally by Dr. Daniele Green."
         />
 
         <div className="mt-8 flex snap-x gap-2.5 overflow-x-auto pb-2 lg:flex-wrap lg:justify-center lg:overflow-visible">
@@ -65,10 +65,10 @@ export function Treatments() {
             items={visible}
             getKey={(treatment) => treatment.title}
             getLabel={(treatment) => `${treatment.title} — ${treatment.tag}`}
-            ariaLabel="Tratamentos disponíveis"
-            previousLabel="Tratamento anterior"
-            nextLabel="Próximo tratamento"
-            viewLabel={(treatment) => `Ver ${treatment.title}`}
+            ariaLabel="Services offered"
+            previousLabel="Previous service"
+            nextLabel="Next service"
+            viewLabel={(treatment) => `View ${treatment.title}`}
             trackClassName="h-[540px] sm:h-[500px] lg:h-[480px]"
             cardWidth={treatmentCardWidth}
             slideRole="group"

@@ -15,7 +15,7 @@ import { Faq } from "@/components/landing/Faq";
 import { Location } from "@/components/landing/Location";
 import { CtaBanner } from "@/components/landing/CtaBanner";
 import { Footer } from "@/components/landing/Footer";
-import { WhatsAppFab } from "@/components/landing/WhatsAppFab";
+import { CallFab } from "@/components/landing/CallFab";
 import { clinic, faq } from "@/config/clinic";
 
 const title = "Instituto Oral Premium | Dentista 24h na Savassi, BH";
@@ -80,7 +80,7 @@ function LandingPage() {
         <CtaBanner />
       </main>
       <Footer />
-      <WhatsAppFab />
+      <CallFab />
       <BookingModal />
       <Toaster position="top-center" richColors />
     </BookingProvider>

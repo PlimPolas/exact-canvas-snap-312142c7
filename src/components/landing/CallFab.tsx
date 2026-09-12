@@ -1,7 +1,7 @@
 import { Phone } from "lucide-react";
 import { clinic } from "@/config/clinic";
 
-export function WhatsAppFab() {
+export function CallFab() {
   return (
     <a
       href={clinic.phoneHref}
