@@ -1,5 +1,5 @@
 import { CalendarCheck, Phone } from "lucide-react";
-import { clinic } from "@/config/clinic";
+import { clinic, ctaImage } from "@/config/clinic";
 import { useBooking } from "./booking-context";
 import { PulseDot, btnGhostHero } from "./ui-kit";
 import { cn } from "@/lib/utils";
@@ -9,7 +9,15 @@ export function CtaBanner() {
 
   return (
     <section className="bg-background px-4 py-16 sm:px-8 lg:px-16 lg:py-20">
-      <div className="mx-auto flex w-full max-w-[1440px] flex-col items-center gap-6 rounded-3xl gradient-hero-dark px-6 py-12 text-center shadow-strong lg:px-16 lg:py-16">
+      <div className="relative isolate mx-auto flex w-full max-w-[1440px] flex-col items-center gap-6 overflow-hidden rounded-3xl gradient-hero-dark px-6 py-12 text-center shadow-strong lg:px-16 lg:py-16">
+        <img
+          src={ctaImage}
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          className="absolute inset-0 -z-10 size-full object-cover object-[70%_20%] opacity-25"
+        />
+        <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,rgba(10,10,12,0.92),rgba(10,10,12,0.72))]" />
         <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1.5 font-heading text-[0.625rem] font-bold uppercase tracking-[0.1em] text-white sm:text-[0.6875rem]">
           <PulseDot className="text-success" />
           Now accepting new patients

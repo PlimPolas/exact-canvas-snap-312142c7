@@ -1,24 +1,8 @@
 import { useEffect, useState } from "react";
 import { CalendarCheck, Menu, Phone, X } from "lucide-react";
-import { clinic, navLinks } from "@/config/clinic";
+import { brand, clinic, navLinks } from "@/config/clinic";
 import { useBooking } from "./booking-context";
 import { cn } from "@/lib/utils";
-
-function ToothMark({ className }: { className?: string }) {
-  return (
-    <div
-      className={cn(
-        "flex size-10 shrink-0 items-center justify-center rounded-xl gradient-primary text-white shadow-glow-sm",
-        className,
-      )}
-      aria-hidden="true"
-    >
-      <svg viewBox="0 0 24 24" fill="currentColor" className="size-5">
-        <path d="M12 2c-2 0-2.6.9-4.3.9C5.4 2.9 4 4.6 4 7.4c0 3 .8 5 1.4 7.2.5 1.9.6 4 .9 5.3.2 1 .7 2.1 1.7 2.1 1.2 0 1.5-1.3 1.8-2.8.3-1.6.6-3.6 2.2-3.6s1.9 2 2.2 3.6c.3 1.5.6 2.8 1.8 2.8 1 0 1.5-1.1 1.7-2.1.3-1.3.4-3.4.9-5.3.6-2.2 1.4-4.2 1.4-7.2 0-2.8-1.4-4.5-3.7-4.5C14.6 2.9 14 2 12 2Z" />
-      </svg>
-    </div>
-  );
-}
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -51,15 +35,14 @@ export function Navbar() {
         aria-label="Main navigation"
       >
         <div className="mx-auto flex w-full max-w-[1440px] items-center justify-between gap-6">
-          <a
-            href="#top"
-            className={cn(
-              "z-10 flex items-center gap-3 font-heading text-[1.05rem] font-extrabold tracking-tight transition-colors sm:text-[1.15rem]",
-              scrolled ? "text-foreground" : "text-white",
-            )}
-          >
-            <ToothMark />
-            <span>{clinic.shortName}</span>
+          <a href="#top" className="z-10 flex items-center" aria-label={clinic.name}>
+            <img
+              src={scrolled ? brand.logoDark : brand.logoWhite}
+              alt={brand.logoAlt}
+              width={531}
+              height={300}
+              className="h-11 w-auto sm:h-12"
+            />
           </a>
 
           <div

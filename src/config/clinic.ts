@@ -6,7 +6,6 @@
 import infra1 from "@/assets/infra-1.jpg";
 import infra2 from "@/assets/infra-2.jpg";
 import infra3 from "@/assets/infra-3.jpg";
-import infra4 from "@/assets/infra-4.jpg";
 import case1Before from "@/assets/case1-an.jpg.asset.json";
 import case1After from "@/assets/case1-dp.jpg.asset.json";
 import case2Before from "@/assets/case2-an.jpg.asset.json";
@@ -21,8 +20,22 @@ import case6Before from "@/assets/case6-an.jpg.asset.json";
 import case6After from "@/assets/case6-dp.jpg.asset.json";
 import case7Before from "@/assets/case7-an.jpg.asset.json";
 import case7After from "@/assets/case7-dp.jpg.asset.json";
-import heroPoster from "@/assets/hero-coastal.jpg";
-import drPortrait from "@/assets/dr-portrait.jpg";
+import logoWhiteAsset from "@/assets/logo-white.png.asset.json";
+import logoDarkAsset from "@/assets/logo-dark.png.asset.json";
+import drHeroAsset from "@/assets/dr-green-hero.jpg.asset.json";
+import drPortraitAsset from "@/assets/dr-green-portrait.jpg.asset.json";
+import drOfficeAsset from "@/assets/dr-green-office.jpg.asset.json";
+import drScannerAsset from "@/assets/dr-green-scanner.jpg.asset.json";
+
+export const brand = {
+  logoWhite: logoWhiteAsset.url,
+  logoDark: logoDarkAsset.url,
+  logoAlt: "Coastal Smiles Newport Beach",
+};
+
+const heroPoster = drHeroAsset.url;
+const drPortrait = drPortraitAsset.url;
+export const ctaImage = drOfficeAsset.url;
 
 export const clinic = {
   name: "Coastal Smiles Newport Beach",
@@ -236,7 +249,7 @@ export const infraGallery = [
   { src: infra1, alt: "Reception at our Newport Beach studio" },
   { src: infra2, alt: "Private, calm waiting lounge" },
   { src: infra3, alt: "Treatment suite with advanced technology" },
-  { src: infra4, alt: "Digital smile design and 3D planning" },
+  { src: drScannerAsset.url, alt: "Digital smile design and 3D planning" },
 ];
 
 export const infraHighlights = [
