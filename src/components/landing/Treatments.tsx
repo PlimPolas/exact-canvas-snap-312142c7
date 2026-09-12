@@ -38,7 +38,7 @@ export function Treatments() {
 
         <div className="mt-8">
           <CoverflowCarousel
-            items={visible}
+            items={treatments}
             getKey={(treatment) => treatment.title}
             getLabel={(treatment) => `${treatment.title} — ${treatment.tag}`}
             ariaLabel="Services offered"
