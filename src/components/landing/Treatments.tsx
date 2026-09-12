@@ -38,8 +38,8 @@ export function Treatments() {
       <div className="mx-auto w-full max-w-[1440px]">
         <SectionHeader
           badge="Services"
-          title="Cosmetic and comprehensive dentistry, under one plan"
-          desc="From porcelain veneers to full mouth reconstruction, every treatment is designed and delivered personally by Dr. Daniele Green."
+          title="Complete dentistry, personally designed"
+          desc="Veneers to full mouth reconstruction — designed and delivered by Dr. Daniele Green."
         />
 
         <div className="mt-8 flex snap-x gap-2.5 overflow-x-auto pb-2 lg:flex-wrap lg:justify-center lg:overflow-visible">
