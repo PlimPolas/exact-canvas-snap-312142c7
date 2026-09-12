@@ -1,5 +1,5 @@
 import { Instagram, Mail, MapPin, Phone } from "lucide-react";
-import { clinic, navLinks, specialtiesOptions } from "@/config/clinic";
+import { brand, clinic, navLinks, specialtiesOptions } from "@/config/clinic";
 
 export function Footer() {
   return (
@@ -7,7 +7,14 @@ export function Footer() {
       <div className="mx-auto w-full max-w-[1440px]">
         <div className="grid gap-10 border-b border-white/10 pb-10 md:grid-cols-2 lg:grid-cols-4">
           <div className="flex flex-col gap-4">
-            <span className="font-heading text-xl font-extrabold text-white">{clinic.name}</span>
+            <img
+              src={brand.logoWhite}
+              alt={brand.logoAlt}
+              loading="lazy"
+              width={531}
+              height={300}
+              className="h-16 w-auto self-start"
+            />
             <p className="max-w-[300px] text-sm leading-relaxed text-white/50">
               {clinic.tagline} in Newport Beach, California, led by {clinic.dentist}.
             </p>

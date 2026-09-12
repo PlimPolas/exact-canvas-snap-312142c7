@@ -35,15 +35,14 @@ export function Navbar() {
         aria-label="Main navigation"
       >
         <div className="mx-auto flex w-full max-w-[1440px] items-center justify-between gap-6">
-          <a
-            href="#top"
-            className={cn(
-              "z-10 flex items-center gap-3 font-heading text-[1.05rem] font-extrabold tracking-tight transition-colors sm:text-[1.15rem]",
-              scrolled ? "text-foreground" : "text-white",
-            )}
-          >
-            <ToothMark />
-            <span>{clinic.shortName}</span>
+          <a href="#top" className="z-10 flex items-center" aria-label={clinic.name}>
+            <img
+              src={scrolled ? brand.logoDark : brand.logoWhite}
+              alt={brand.logoAlt}
+              width={531}
+              height={300}
+              className="h-11 w-auto sm:h-12"
+            />
           </a>
 
           <div

@@ -23,9 +23,9 @@ export function Team() {
               src={about.portrait}
               alt={`${clinic.dentist} — ${clinic.dentistRole}`}
               loading="lazy"
-              width={1024}
-              height={1280}
-              className="size-full object-cover"
+              width={612}
+              height={808}
+              className="aspect-4/5 size-full object-cover object-top"
             />
           </div>
 
