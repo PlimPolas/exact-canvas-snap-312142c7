@@ -18,9 +18,9 @@ import { Footer } from "@/components/landing/Footer";
 import { CallFab } from "@/components/landing/CallFab";
 import { clinic, faq } from "@/config/clinic";
 
-const title = "Instituto Oral Premium | Dentista 24h na Savassi, BH";
+const title = "Coastal Smiles Newport Beach | Dr. Daniele Green, DDS";
 const description =
-  "Clínica odontológica premium na Savassi, Belo Horizonte: plantão 24 horas, implantes guiados 3D, lentes de contato dental, Invisalign e sedação sem dor.";
+  "Award-winning cosmetic dentistry in Newport Beach. Porcelain veneers, smile makeovers, Invisalign and comprehensive care with Dr. Daniele Green, DDS.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -43,15 +43,17 @@ function LandingPage() {
     name: clinic.name,
     description,
     telephone: clinic.phoneLabel,
+    email: clinic.email,
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Av. Getúlio Vargas, 1649",
-      addressLocality: "Belo Horizonte",
-      addressRegion: "MG",
-      addressCountry: "BR",
+      streetAddress: clinic.streetAddress,
+      addressLocality: clinic.locality,
+      addressRegion: clinic.region,
+      postalCode: clinic.postalCode,
+      addressCountry: "US",
     },
-    openingHours: "Mo-Su 00:00-23:59",
-    aggregateRating: { "@type": "AggregateRating", ratingValue: "5", reviewCount: "2400" },
+    openingHours: ["Mo-Tu 08:00-17:00", "We-Th 09:00-17:00", "Fr 08:00-12:00"],
+    aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "3" },
     mainEntityOfPage: {
       "@type": "FAQPage",
       mainEntity: faq.map((item) => ({
