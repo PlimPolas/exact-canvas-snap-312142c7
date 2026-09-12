@@ -1,97 +1,79 @@
-import { useCallback, useRef, useState } from "react";
-import { MoveHorizontal } from "lucide-react";
-import { beforeAfter } from "@/config/clinic";
+import { useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { smileCases } from "@/config/clinic";
 import { SectionHeader } from "./ui-kit";
+import { BeforeAfterSlider } from "./BeforeAfterSlider";
+import { Button } from "@/components/ui/button";
 
 export function BeforeAfter() {
-  const [position, setPosition] = useState(50);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const dragging = useRef(false);
+  const [index, setIndex] = useState(0);
+  const total = smileCases.length;
 
-  const updateFromClientX = useCallback((clientX: number) => {
-    const el = containerRef.current;
-    if (!el) return;
-    const rect = el.getBoundingClientRect();
-    const pct = ((clientX - rect.left) / rect.width) * 100;
-    setPosition(Math.min(100, Math.max(0, pct)));
-  }, []);
+  const go = (direction: 1 | -1) => setIndex((current) => (current + direction + total) % total);
+
+  const active = smileCases[index]!;
 
   return (
     <section id="transformations" className="scroll-mt-24 bg-background px-4 py-16 sm:px-8 lg:px-16 lg:py-24">
       <div className="mx-auto w-full max-w-[1100px]">
         <SectionHeader
-          badge="Smile Transformations"
-          title="Before and after a facially driven design"
-          desc="Drag the handle to compare. Results are planned digitally and refined with porcelain, alignment and proportion in mind."
+          badge="Real Patient Results"
+          title="Smile Transformations"
+          desc="Explore real before-and-after results and see how personalized cosmetic dentistry can transform a smile while preserving a natural, balanced appearance."
         />
 
         <div
-          ref={containerRef}
-          className="relative mt-10 aspect-4/3 w-full touch-none select-none overflow-hidden rounded-2xl border border-border shadow-strong sm:aspect-16/9"
-          onPointerDown={(e) => {
-            dragging.current = true;
-            (e.target as HTMLElement).setPointerCapture?.(e.pointerId);
-            updateFromClientX(e.clientX);
-          }}
-          onPointerMove={(e) => {
-            if (!dragging.current) return;
-            updateFromClientX(e.clientX);
-          }}
-          onPointerUp={() => {
-            dragging.current = false;
-          }}
-          onPointerCancel={() => {
-            dragging.current = false;
-          }}
+          className="relative mt-10"
+          role="group"
+          aria-roledescription="carousel"
+          aria-label="Smile transformation cases"
         >
-          <img
-            src={beforeAfter.after}
-            alt="Smile after treatment"
-            loading="lazy"
-            draggable={false}
-            className="absolute inset-0 size-full object-cover"
-          />
-          <div className="absolute inset-0 overflow-hidden" style={{ width: `${position}%` }}>
-            <img
-              src={beforeAfter.before}
-              alt="Smile before treatment"
-              loading="lazy"
-              draggable={false}
-              className="absolute inset-0 h-full w-[100vw] max-w-none object-cover"
-              style={{ width: containerRef.current?.clientWidth ?? "100%" }}
+          <div key={active.caseNumber} className="animate-in fade-in duration-500">
+            <BeforeAfterSlider
+              caseNumber={active.caseNumber}
+              beforeImage={active.beforeImage}
+              afterImage={active.afterImage}
+              priority={index === 0}
+              onSwipe={go}
             />
           </div>
 
-          <span className="absolute left-4 top-4 rounded-full bg-black/55 px-3 py-1.5 font-heading text-[0.625rem] font-bold uppercase tracking-[0.1em] text-white backdrop-blur-sm">
-            Before
-          </span>
-          <span className="absolute right-4 top-4 rounded-full bg-black/55 px-3 py-1.5 font-heading text-[0.625rem] font-bold uppercase tracking-[0.1em] text-white backdrop-blur-sm">
-            After
-          </span>
-
-          <div
-            className="absolute inset-y-0 z-10 w-0.5 bg-white/90"
-            style={{ left: `${position}%` }}
-            aria-hidden="true"
-          >
-            <span className="absolute left-1/2 top-1/2 flex size-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white text-foreground shadow-strong">
-              <MoveHorizontal className="size-5" />
+          <div className="mt-6 flex items-center justify-between gap-4">
+            <span className="font-heading text-[0.75rem] font-bold uppercase tracking-[0.16em] text-text-muted">
+              {active.caseNumber} <span className="text-border">/</span> {String(total).padStart(2, "0")}
             </span>
+
+            <div className="flex items-center gap-2">
+              <Button
+                type="button"
+                variant="outline"
+                size="icon"
+                aria-label="Previous case"
+                onClick={() => go(-1)}
+                className="size-11 rounded-full border-border transition-transform hover:-translate-x-0.5 hover:border-primary hover:text-primary"
+              >
+                <ChevronLeft className="size-5" />
+              </Button>
+              <Button
+                type="button"
+                variant="outline"
+                size="icon"
+                aria-label="Next case"
+                onClick={() => go(1)}
+                className="size-11 rounded-full border-border transition-transform hover:translate-x-0.5 hover:border-primary hover:text-primary"
+              >
+                <ChevronRight className="size-5" />
+              </Button>
+            </div>
+          </div>
+
+          <div className="mt-4 h-px w-full overflow-hidden bg-border">
+            <span
+              className="block h-full gradient-primary transition-all duration-500"
+              style={{ width: `${((index + 1) / total) * 100}%` }}
+            />
           </div>
         </div>
-
-        <label className="sr-only" htmlFor="before-after-range">
-          Compare before and after
-        </label>
-        <input
-          id="before-after-range"
-          type="range"
-          min={0}
-          max={100}
-          value={position}
-          onChange={(e) => setPosition(Number(e.target.value))}
-          className="mt-5 w-full accent-primary"
-        />
       </div>
     </section>
   );
