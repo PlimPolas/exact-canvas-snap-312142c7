@@ -7,8 +7,14 @@ import infra1 from "@/assets/infra-1.jpg";
 import infra2 from "@/assets/infra-2.jpg";
 import infra3 from "@/assets/infra-3.jpg";
 import infra4 from "@/assets/infra-4.jpg";
-import smileBefore from "@/assets/smile-before.jpg";
-import smileAfter from "@/assets/smile-after.jpg";
+import case1Before from "@/assets/case1-an.jpg.asset.json";
+import case1After from "@/assets/case1-dp.jpg.asset.json";
+import case2Before from "@/assets/case2-an.jpg.asset.json";
+import case2After from "@/assets/case2-dp.jpg.asset.json";
+import case3Before from "@/assets/case3-an.jpg.asset.json";
+import case3After from "@/assets/case3-dp.jpg.asset.json";
+import case4Before from "@/assets/case4-an.jpg.asset.json";
+import case4After from "@/assets/case4-dp.jpg.asset.json";
 import heroPoster from "@/assets/hero-coastal.jpg";
 import drPortrait from "@/assets/dr-portrait.jpg";
 
