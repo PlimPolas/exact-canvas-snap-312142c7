@@ -115,31 +115,6 @@ export function Treatments() {
           />
         </div>
 
-        {/* Urgência 24h */}
-        <div className="mt-6 overflow-hidden rounded-2xl gradient-hero-dark p-6 shadow-strong lg:p-10">
-          <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
-            <div className="flex flex-col gap-3.5">
-              <div className="inline-flex w-fit items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1.5 font-heading text-[0.625rem] font-bold uppercase tracking-[0.1em] text-white sm:text-[0.6875rem]">
-                <PulseDot className="text-success" />
-                {urgencyCard.badge}
-              </div>
-              <h3 className="flex items-center gap-3 font-heading text-2xl font-extrabold text-white lg:text-3xl">
-                <Siren className="size-7 shrink-0 text-primary-light" />
-                {urgencyCard.title}
-              </h3>
-              <p className="max-w-[640px] text-[0.9375rem] leading-relaxed text-white/60">{urgencyCard.text}</p>
-            </div>
-            <a
-              href={clinic.whatsappUrgency}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={cn(btnWhatsapp, "w-full shrink-0 lg:w-auto")}
-            >
-              <MessageCircle className="size-[1.125rem]" />
-              Chamar Plantão Agora
-            </a>
-          </div>
-        </div>
       </div>
     </section>
   );
