@@ -64,7 +64,7 @@ export function BeforeAfterSlider({ caseNumber, beforeImage, afterImage, priorit
         onPointerMove={handlePointerMove}
         onPointerUp={endInteraction}
         onPointerCancel={endInteraction}
-        className="relative aspect-3/2 w-full touch-pan-y select-none overflow-hidden rounded-2xl border border-border bg-surface-alt shadow-strong sm:aspect-2/1"
+        className="relative aspect-2/1 w-full touch-pan-y select-none overflow-hidden rounded-2xl border border-border bg-surface-alt shadow-strong"
       >
         <img
           src={afterImage}
