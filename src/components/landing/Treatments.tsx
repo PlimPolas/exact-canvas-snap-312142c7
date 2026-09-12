@@ -1,4 +1,3 @@
-import { useCallback, useState } from "react";
 import {
   ArrowRight,
   Microscope,
@@ -7,8 +6,7 @@ import {
   Sparkles,
   Stethoscope,
 } from "lucide-react";
-import { treatmentFilters, treatments } from "@/config/clinic";
-import type { TreatmentCategory } from "@/config/clinic";
+import { treatments } from "@/config/clinic";
 import { useBooking } from "./booking-context";
 import { Badge, SectionHeader } from "./ui-kit";
 import { cn } from "@/lib/utils";
@@ -27,11 +25,7 @@ const treatmentCardWidth = (width: number) =>
   Math.min(Math.max(width * (width < 640 ? 0.78 : width < 1024 ? 0.48 : 0.31), 250), 430);
 
 export function Treatments() {
-  const [filter, setFilter] = useState<TreatmentCategory | "all">("all");
   const { openBooking } = useBooking();
-
-  const visible = treatments.filter((t) => filter === "all" || t.category === filter);
-  const selectFilter = useCallback((value: TreatmentCategory | "all") => setFilter(value), []);
 
   return (
     <section id="services" className="scroll-mt-24 bg-surface-alt px-4 py-16 sm:px-8 lg:px-16 lg:py-24">
