@@ -250,7 +250,7 @@ export const infraGallery = [
   { src: infra1, alt: "Reception at our Newport Beach studio" },
   { src: infra2, alt: "Private, calm waiting lounge" },
   { src: infra3, alt: "Treatment suite with advanced technology" },
-  { src: infra4, alt: "Digital smile design and 3D planning" },
+  { src: drScannerAsset.url, alt: "Digital smile design and 3D planning" },
 ];
 
 export const infraHighlights = [
