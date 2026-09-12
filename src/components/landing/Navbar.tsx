@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import { CalendarCheck, Menu, MessageCircle, Phone, X } from "lucide-react";
+import { CalendarCheck, Menu, Phone, X } from "lucide-react";
 import { clinic, navLinks } from "@/config/clinic";
 import { useBooking } from "./booking-context";
-import { btnWhatsapp } from "./ui-kit";
 import { cn } from "@/lib/utils";
 
 function ToothMark({ className }: { className?: string }) {
@@ -49,7 +48,7 @@ export function Navbar() {
             ? "border-b border-border/70 bg-background/92 shadow-soft backdrop-blur-2xl"
             : "bg-transparent",
         )}
-        aria-label="Navegação principal"
+        aria-label="Main navigation"
       >
         <div className="mx-auto flex w-full max-w-[1440px] items-center justify-between gap-6">
           <a
@@ -97,13 +96,13 @@ export function Navbar() {
               )}
             >
               <CalendarCheck className="size-4" />
-              <span>Agendar Consulta</span>
+              <span>Book Consultation</span>
             </button>
 
             <button
               type="button"
               onClick={() => setMenuOpen(true)}
-              aria-label="Abrir menu"
+              aria-label="Open menu"
               className={cn(
                 "flex size-11 items-center justify-center rounded-lg border transition-colors lg:hidden",
                 scrolled
@@ -130,7 +129,7 @@ export function Navbar() {
         <button
           type="button"
           onClick={() => setMenuOpen(false)}
-          aria-label="Fechar menu"
+          aria-label="Close menu"
           className="absolute right-5 top-5 flex size-11 items-center justify-center rounded-full border border-border bg-surface-alt text-foreground"
         >
           <X className="size-5" />
@@ -159,12 +158,8 @@ export function Navbar() {
             className="inline-flex w-full items-center justify-center gap-2.5 rounded-lg gradient-primary px-7 py-4 font-heading text-sm font-bold uppercase tracking-[0.04em] text-primary-foreground"
           >
             <CalendarCheck className="size-5" />
-            Agendar Avaliação
+            Book Your Smile Consultation
           </button>
-          <a href={clinic.whatsappUrl} target="_blank" rel="noopener noreferrer" className={cn(btnWhatsapp, "w-full")}>
-            <MessageCircle className="size-5" />
-            Falar no WhatsApp
-          </a>
           <a
             href={clinic.phoneHref}
             className="inline-flex items-center justify-center gap-2 py-2 text-sm font-semibold text-text-secondary"

@@ -1,16 +1,16 @@
-import { Clock, MapPin, Navigation, Phone } from "lucide-react";
-import { clinic } from "@/config/clinic";
+import { Clock, Mail, MapPin, Navigation, Phone } from "lucide-react";
+import { clinic, officeHours } from "@/config/clinic";
 import { SectionHeader, btnGhost, btnPrimary } from "./ui-kit";
 import { cn } from "@/lib/utils";
 
 export function Location() {
   return (
-    <section id="localizacao" className="scroll-mt-24 bg-surface-alt px-4 py-16 sm:px-8 lg:px-16 lg:py-24">
+    <section id="contact" className="scroll-mt-24 bg-surface-alt px-4 py-16 sm:px-8 lg:px-16 lg:py-24">
       <div className="mx-auto w-full max-w-[1440px]">
         <SectionHeader
-          badge="Onde Estamos"
-          title="No coração da Savassi, aberto 24 horas"
-          desc="Estacionamento privativo gratuito e acesso fácil para todas as regiões de Belo Horizonte."
+          badge="Visit Us"
+          title="Newport Beach · 1401 Avocado Ave"
+          desc="A private suite minutes from Fashion Island, with easy parking and unhurried appointments."
         />
 
         <div className="mt-10 grid gap-5 lg:grid-cols-[1fr_1.15fr]">
@@ -20,7 +20,7 @@ export function Location() {
                 <MapPin className="size-5" />
               </span>
               <div>
-                <h3 className="font-heading text-base font-extrabold text-foreground">Endereço</h3>
+                <h3 className="font-heading text-base font-extrabold text-foreground">Address</h3>
                 <p className="mt-1 text-[0.9375rem] leading-relaxed text-text-secondary">{clinic.address}</p>
               </div>
             </div>
@@ -30,8 +30,18 @@ export function Location() {
                 <Clock className="size-5" />
               </span>
               <div>
-                <h3 className="font-heading text-base font-extrabold text-foreground">Horário</h3>
-                <p className="mt-1 text-[0.9375rem] leading-relaxed text-text-secondary">{clinic.hours}</p>
+                <h3 className="font-heading text-base font-extrabold text-foreground">Office Hours</h3>
+                <ul className="mt-1.5 flex flex-col gap-1">
+                  {officeHours.map((item) => (
+                    <li
+                      key={item.day}
+                      className="flex items-center justify-between gap-6 text-[0.9375rem] text-text-secondary"
+                    >
+                      <span>{item.day}</span>
+                      <span className="font-medium text-foreground">{item.time}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
 
@@ -40,12 +50,21 @@ export function Location() {
                 <Phone className="size-5" />
               </span>
               <div>
-                <h3 className="font-heading text-base font-extrabold text-foreground">Telefone & WhatsApp</h3>
-                <a
-                  href={clinic.phoneHref}
-                  className="mt-1 block text-[0.9375rem] font-semibold text-primary"
-                >
+                <h3 className="font-heading text-base font-extrabold text-foreground">Phone</h3>
+                <a href={clinic.phoneHref} className="mt-1 block text-[0.9375rem] font-semibold text-primary">
                   {clinic.phoneLabel}
+                </a>
+              </div>
+            </div>
+
+            <div className="flex gap-4 border-t border-border pt-4">
+              <span className="flex size-11 shrink-0 items-center justify-center rounded-xl gradient-primary text-primary-foreground">
+                <Mail className="size-5" />
+              </span>
+              <div>
+                <h3 className="font-heading text-base font-extrabold text-foreground">Email</h3>
+                <a href={clinic.emailHref} className="mt-1 block break-all text-[0.9375rem] font-semibold text-primary">
+                  {clinic.email}
                 </a>
               </div>
             </div>
@@ -58,23 +77,18 @@ export function Location() {
                 className={cn(btnPrimary, "w-full sm:flex-1")}
               >
                 <Navigation className="size-[1.125rem]" />
-                Traçar Rota
+                Get Directions
               </a>
-              <a
-                href={clinic.wazeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={cn(btnGhost, "w-full sm:flex-1")}
-              >
-                Abrir no Waze
+              <a href={clinic.phoneHref} className={cn(btnGhost, "w-full sm:flex-1")}>
+                Call the Office
               </a>
             </div>
           </div>
 
           <div className="min-h-[320px] overflow-hidden rounded-2xl border border-border shadow-soft">
             <iframe
-              title={`Mapa da localização — ${clinic.name}`}
-              src="https://www.google.com/maps?q=Av.+Get%C3%BAlio+Vargas,+1649,+Savassi,+Belo+Horizonte+-+MG&output=embed"
+              title={`Map — ${clinic.name}`}
+              src={clinic.mapsEmbedUrl}
               className="size-full min-h-[320px] border-0"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

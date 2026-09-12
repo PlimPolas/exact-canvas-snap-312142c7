@@ -5,12 +5,12 @@ import { cn } from "@/lib/utils";
 
 export function Infra() {
   return (
-    <section id="tecnologia" className="scroll-mt-24 bg-background px-4 py-16 sm:px-8 lg:px-16 lg:py-24">
+    <section id="studio" className="scroll-mt-24 bg-background px-4 py-16 sm:px-8 lg:px-16 lg:py-24">
       <div className="mx-auto w-full max-w-[1440px]">
         <SectionHeader
-          badge="Infraestrutura"
-          title="Um ambiente pensado para o seu conforto"
-          desc="Recepção premium, salas cirúrgicas certificadas e centro de imagem próprio, disponíveis 24 horas por dia."
+          badge="The Studio"
+          title="A calm, private setting on Avocado Ave"
+          desc="Advanced imaging and digital planning in a quiet, unhurried environment designed for one patient at a time."
         />
 
         <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -31,7 +31,7 @@ export function Infra() {
                   index === 0 ? "aspect-4/3 lg:aspect-auto lg:h-full lg:min-h-[420px]" : "aspect-4/3",
                 )}
               />
-              <div className="absolute inset-x-0 bottom-0 bg-[linear-gradient(to_top,rgba(9,14,23,0.82),transparent)] p-4 pt-10">
+              <div className="absolute inset-x-0 bottom-0 bg-[linear-gradient(to_top,rgba(12,12,14,0.82),transparent)] p-4 pt-10">
                 <span className="font-heading text-[0.8125rem] font-bold text-white">{image.alt}</span>
               </div>
             </div>

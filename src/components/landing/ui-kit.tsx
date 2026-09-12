@@ -19,11 +19,6 @@ export const btnGhostHero = cn(
   "border-[1.5px] border-white/20 bg-white/[0.06] px-7 py-4 text-sm text-white backdrop-blur-sm hover:border-white/35 hover:bg-white/12",
 );
 
-export const btnWhatsapp = cn(
-  btnBase,
-  "bg-whatsapp px-7 py-4 text-sm text-white shadow-soft hover:-translate-y-0.5",
-);
-
 export function Badge({
   children,
   className,
@@ -67,7 +62,7 @@ export function SectionHeader({
       )}
     >
       <Badge>{badge}</Badge>
-      <h2 className="font-heading text-[clamp(1.75rem,3.6vw,2.75rem)] font-extrabold leading-[1.12] text-foreground">
+      <h2 className="font-serif text-[clamp(2rem,4.2vw,3.25rem)] font-normal leading-[1.08] tracking-[-0.01em] text-foreground">
         {title}
       </h2>
       {desc ? (

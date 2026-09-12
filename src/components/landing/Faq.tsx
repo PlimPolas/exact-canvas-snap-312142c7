@@ -11,7 +11,7 @@ export function Faq() {
   return (
     <section id="faq" className="scroll-mt-24 bg-background px-4 py-16 sm:px-8 lg:px-16 lg:py-24">
       <div className="mx-auto w-full max-w-[900px]">
-        <SectionHeader badge="Dúvidas Frequentes" title="Perguntas que recebemos todos os dias" />
+        <SectionHeader badge="Questions" title="What patients ask before their first visit" />
 
         <Accordion type="single" collapsible className="mt-9 flex flex-col gap-3">
           {faq.map((item, index) => (
