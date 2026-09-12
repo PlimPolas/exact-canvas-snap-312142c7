@@ -36,24 +36,6 @@ export function Treatments() {
           desc="Veneers to full mouth reconstruction — designed and delivered by Dr. Daniele Green."
         />
 
-        <div className="mt-8 flex snap-x gap-2.5 overflow-x-auto pb-2 lg:flex-wrap lg:justify-center lg:overflow-visible">
-          {treatmentFilters.map((item) => (
-            <button
-              key={item.value}
-              type="button"
-              onClick={() => selectFilter(item.value)}
-              className={cn(
-                "shrink-0 snap-start rounded-full border px-4 py-2.5 font-heading text-[0.8125rem] font-bold transition-all",
-                filter === item.value
-                  ? "border-transparent gradient-primary text-primary-foreground shadow-glow-sm"
-                  : "border-border bg-background text-text-secondary hover:border-primary hover:text-primary",
-              )}
-            >
-              {item.label}
-            </button>
-          ))}
-        </div>
-
         <div className="mt-8">
           <CoverflowCarousel
             items={visible}
