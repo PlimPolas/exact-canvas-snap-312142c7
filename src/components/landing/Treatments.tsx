@@ -1,10 +1,8 @@
 import { useCallback, useState } from "react";
 import {
   ArrowRight,
-  MessageCircle,
   Microscope,
   RefreshCw,
-  Siren,
   Smile,
   Sparkles,
   Stethoscope,
