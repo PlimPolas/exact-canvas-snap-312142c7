@@ -170,10 +170,18 @@ export const treatments = [
   },
 ];
 
-export const beforeAfter = {
-  before: smileBefore,
-  after: smileAfter,
+export type SmileCase = {
+  caseNumber: string;
+  beforeImage: string;
+  afterImage: string;
 };
+
+export const smileCases: SmileCase[] = [
+  { caseNumber: "01", beforeImage: case1Before.url, afterImage: case1After.url },
+  { caseNumber: "02", beforeImage: case2Before.url, afterImage: case2After.url },
+  { caseNumber: "03", beforeImage: case3Before.url, afterImage: case3After.url },
+  { caseNumber: "04", beforeImage: case4Before.url, afterImage: case4After.url },
+];
 
 export const about = {
   badge: "About",
