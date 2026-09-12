@@ -15,8 +15,9 @@ export function Hero() {
       <div className="absolute inset-0 z-1">
         <img
           src={heroContent.poster}
-          alt="Coastal Smiles Newport Beach treatment suite overlooking the coast"
-          className="hero-zoom size-full object-cover object-[54%_center] md:object-center"
+          alt="Dr. Daniele Green, DDS, at Coastal Smiles Newport Beach"
+          fetchPriority="high"
+          className="hero-zoom size-full object-cover object-[62%_top] md:object-[78%_top] lg:object-[72%_15%]"
         />
         <div className="hero-overlay absolute inset-0 z-2" />
       </div>
