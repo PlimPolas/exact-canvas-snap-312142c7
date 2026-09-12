@@ -15,6 +15,12 @@ import case3Before from "@/assets/case3-an.jpg.asset.json";
 import case3After from "@/assets/case3-dp.jpg.asset.json";
 import case4Before from "@/assets/case4-an.jpg.asset.json";
 import case4After from "@/assets/case4-dp.jpg.asset.json";
+import case5Before from "@/assets/case5-an.jpg.asset.json";
+import case5After from "@/assets/case5-dp.jpg.asset.json";
+import case6Before from "@/assets/case6-an.jpg.asset.json";
+import case6After from "@/assets/case6-dp.jpg.asset.json";
+import case7Before from "@/assets/case7-an.jpg.asset.json";
+import case7After from "@/assets/case7-dp.jpg.asset.json";
 import heroPoster from "@/assets/hero-coastal.jpg";
 import drPortrait from "@/assets/dr-portrait.jpg";
 
