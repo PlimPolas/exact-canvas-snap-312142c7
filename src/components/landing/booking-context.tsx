@@ -11,7 +11,7 @@ const BookingContext = createContext<BookingContextValue | null>(null);
 
 export function BookingProvider({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false);
-  const [specialty, setSpecialty] = useState("Avaliação Geral e Limpeza");
+  const [specialty, setSpecialty] = useState("General Exam & Cleaning");
 
   const openBooking = useCallback((next?: string) => {
     if (next) setSpecialty(next);
