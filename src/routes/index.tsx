@@ -58,7 +58,7 @@ function LandingPage() {
     aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "3" },
     mainEntityOfPage: {
       "@type": "FAQPage",
-      mainEntity: faq.map((item) => ({
+      mainEntity: en.faq.items.map((item) => ({
         "@type": "Question",
         name: item.q,
         acceptedAnswer: { "@type": "Answer", text: item.a },
