@@ -6,7 +6,7 @@ import {
   Sparkles,
   Stethoscope,
 } from "lucide-react";
-import { treatments } from "@/config/clinic";
+import { format, useI18n } from "@/i18n";
 import { useBooking } from "./booking-context";
 import { Badge, SectionHeader } from "./ui-kit";
 import { cn } from "@/lib/utils";
@@ -26,25 +26,22 @@ const treatmentCardWidth = (width: number) =>
 
 export function Treatments() {
   const { openBooking } = useBooking();
+  const { t } = useI18n();
 
   return (
     <section id="services" className="scroll-mt-24 bg-surface-alt px-4 py-16 sm:px-8 lg:px-16 lg:py-24">
       <div className="mx-auto w-full max-w-[1440px]">
-        <SectionHeader
-          badge="Services"
-          title="Complete dentistry, personally designed"
-          desc="Veneers to full mouth reconstruction — designed and delivered by Dr. Daniele Green."
-        />
+        <SectionHeader badge={t.treatments.badge} title={t.treatments.title} desc={t.treatments.desc} />
 
         <div className="mt-8">
           <CoverflowCarousel
-            items={treatments}
-            getKey={(treatment) => treatment.title}
+            items={t.treatments.items}
+            getKey={(treatment) => treatment.key}
             getLabel={(treatment) => `${treatment.title} — ${treatment.tag}`}
-            ariaLabel="Services offered"
-            previousLabel="Previous service"
-            nextLabel="Next service"
-            viewLabel={(treatment) => `View ${treatment.title}`}
+            ariaLabel={t.treatments.ariaLabel}
+            previousLabel={t.treatments.previousLabel}
+            nextLabel={t.treatments.nextLabel}
+            viewLabel={(treatment) => format(t.treatments.viewLabel, { title: treatment.title })}
             trackClassName="h-[540px] sm:h-[500px] lg:h-[480px]"
             cardWidth={treatmentCardWidth}
             slideRole="group"
@@ -76,7 +73,7 @@ export function Treatments() {
                         variant="ghost"
                         onClick={(event) => {
                           event.stopPropagation();
-                          openBooking(treatment.title);
+                          openBooking(treatment.key);
                         }}
                         className="ml-auto h-auto p-0 font-heading text-[0.8125rem] font-bold text-primary hover:translate-x-0.5 hover:bg-transparent hover:text-primary"
                       >
