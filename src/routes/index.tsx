@@ -16,7 +16,9 @@ import { Location } from "@/components/landing/Location";
 import { CtaBanner } from "@/components/landing/CtaBanner";
 import { Footer } from "@/components/landing/Footer";
 import { CallFab } from "@/components/landing/CallFab";
-import { clinic, faq } from "@/config/clinic";
+import { clinic } from "@/config/clinic";
+import { LanguageProvider } from "@/i18n";
+import { en } from "@/i18n/en";
 
 const title = "Coastal Smiles Newport Beach | Dr. Daniele Green, DDS";
 const description =
