@@ -16,7 +16,9 @@ import { Location } from "@/components/landing/Location";
 import { CtaBanner } from "@/components/landing/CtaBanner";
 import { Footer } from "@/components/landing/Footer";
 import { CallFab } from "@/components/landing/CallFab";
-import { clinic, faq } from "@/config/clinic";
+import { clinic } from "@/config/clinic";
+import { LanguageProvider } from "@/i18n";
+import { en } from "@/i18n/en";
 
 const title = "Coastal Smiles Newport Beach | Dr. Daniele Green, DDS";
 const description =
@@ -56,7 +58,7 @@ function LandingPage() {
     aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "3" },
     mainEntityOfPage: {
       "@type": "FAQPage",
-      mainEntity: faq.map((item) => ({
+      mainEntity: en.faq.items.map((item) => ({
         "@type": "Question",
         name: item.q,
         acceptedAnswer: { "@type": "Answer", text: item.a },
@@ -65,26 +67,28 @@ function LandingPage() {
   };
 
   return (
-    <BookingProvider>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <Navbar />
-      <main>
-        <Hero />
-        <Marquee />
-        <Stats />
-        <Treatments />
-        <BeforeAfter />
-        <Team />
-        <Infra />
-        <Reviews />
-        <Faq />
-        <Location />
-        <CtaBanner />
-      </main>
-      <Footer />
-      <CallFab />
-      <BookingModal />
-      <Toaster position="top-center" richColors />
-    </BookingProvider>
+    <LanguageProvider>
+      <BookingProvider>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        <Navbar />
+        <main>
+          <Hero />
+          <Marquee />
+          <Stats />
+          <Treatments />
+          <BeforeAfter />
+          <Team />
+          <Infra />
+          <Reviews />
+          <Faq />
+          <Location />
+          <CtaBanner />
+        </main>
+        <Footer />
+        <CallFab />
+        <BookingModal />
+        <Toaster position="top-center" richColors />
+      </BookingProvider>
+    </LanguageProvider>
   );
 }

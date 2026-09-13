@@ -8,7 +8,8 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { clinic, contactPreferences, specialtiesOptions } from "@/config/clinic";
+import { clinic } from "@/config/clinic";
+import { format, useI18n } from "@/i18n";
 import { useBooking } from "./booking-context";
 import { btnPrimary } from "./ui-kit";
 import { cn } from "@/lib/utils";
@@ -20,36 +21,42 @@ const labelClass =
   "font-heading text-[0.6875rem] font-bold uppercase tracking-[0.08em] text-text-muted";
 
 export function BookingModal() {
-  const { open, closeBooking, specialty } = useBooking();
+  const { open, closeBooking, specialtyKey } = useBooking();
+  const { t } = useI18n();
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
-  const [selected, setSelected] = useState(specialty);
-  const [preference, setPreference] = useState(contactPreferences[0] ?? "");
+  const [selectedKey, setSelectedKey] = useState(specialtyKey);
+  const [preferenceIndex, setPreferenceIndex] = useState(0);
   const [notes, setNotes] = useState("");
 
   useEffect(() => {
-    setSelected(specialty);
-  }, [specialty]);
+    setSelectedKey(specialtyKey);
+  }, [specialtyKey]);
+
+  const specialtyLabel =
+    t.booking.specialties.find((item) => item.key === selectedKey)?.label ??
+    t.booking.specialties[t.booking.specialties.length - 1]!.label;
+  const preferenceLabel = t.booking.preferences[preferenceIndex] ?? t.booking.preferences[0]!;
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const body = [
-      `I would like to book a smile consultation at ${clinic.name}.`,
-      `Name: ${name}`,
-      `Phone: ${phone}`,
-      `Email: ${email}`,
-      `Service of interest: ${selected}`,
-      `Preferred contact: ${preference}`,
-      notes ? `Notes: ${notes}` : "",
+      format(t.booking.emailIntro, { clinic: clinic.name }),
+      `${t.booking.emailName}: ${name}`,
+      `${t.booking.emailPhone}: ${phone}`,
+      `${t.booking.emailEmail}: ${email}`,
+      `${t.booking.emailService}: ${specialtyLabel}`,
+      `${t.booking.emailPreference}: ${preferenceLabel}`,
+      notes ? `${t.booking.emailNotes}: ${notes}` : "",
     ]
       .filter(Boolean)
       .join("\n");
 
     window.location.href = `${clinic.emailHref}?subject=${encodeURIComponent(
-      "Smile consultation request",
+      t.booking.emailSubject,
     )}&body=${encodeURIComponent(body)}`;
-    toast.success("Opening your email so you can send the request.");
+    toast.success(t.booking.toast);
     closeBooking();
   };
 
@@ -58,10 +65,10 @@ export function BookingModal() {
       <DialogContent className="max-h-[92svh] overflow-y-auto sm:max-w-[520px]">
         <DialogHeader>
           <DialogTitle className="font-heading text-xl font-extrabold text-foreground">
-            Book your smile consultation
+            {t.booking.title}
           </DialogTitle>
           <DialogDescription className="text-[0.9375rem] text-text-secondary">
-            Share a few details and our team will follow up to confirm a time. Prefer to talk now? Call{" "}
+            {t.booking.descBefore}{" "}
             <a href={clinic.phoneHref} className="font-semibold text-primary">
               {clinic.phoneLabel}
             </a>
@@ -72,21 +79,21 @@ export function BookingModal() {
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <div className="flex flex-col gap-1.5">
             <label className={labelClass} htmlFor="booking-name">
-              Full name
+              {t.booking.name}
             </label>
             <input
               id="booking-name"
               required
               value={name}
               onChange={(e) => setName(e.target.value)}
-              placeholder="Your name"
+              placeholder={t.booking.namePlaceholder}
               className={fieldClass}
             />
           </div>
 
           <div className="flex flex-col gap-1.5">
             <label className={labelClass} htmlFor="booking-phone">
-              Phone
+              {t.booking.phone}
             </label>
             <input
               id="booking-phone"
@@ -94,14 +101,14 @@ export function BookingModal() {
               type="tel"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
-              placeholder="(949) 000-0000"
+              placeholder={t.booking.phonePlaceholder}
               className={fieldClass}
             />
           </div>
 
           <div className="flex flex-col gap-1.5">
             <label className={labelClass} htmlFor="booking-email">
-              Email
+              {t.booking.email}
             </label>
             <input
               id="booking-email"
@@ -109,24 +116,24 @@ export function BookingModal() {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="you@email.com"
+              placeholder={t.booking.emailPlaceholder}
               className={fieldClass}
             />
           </div>
 
           <div className="flex flex-col gap-1.5">
             <label className={labelClass} htmlFor="booking-specialty">
-              Service of interest
+              {t.booking.service}
             </label>
             <select
               id="booking-specialty"
-              value={selected}
-              onChange={(e) => setSelected(e.target.value)}
+              value={selectedKey}
+              onChange={(e) => setSelectedKey(e.target.value)}
               className={fieldClass}
             >
-              {[...new Set([specialty, ...specialtiesOptions])].map((option) => (
-                <option key={option} value={option}>
-                  {option}
+              {t.booking.specialties.map((option) => (
+                <option key={option.key} value={option.key}>
+                  {option.label}
                 </option>
               ))}
             </select>
@@ -134,16 +141,16 @@ export function BookingModal() {
 
           <div className="flex flex-col gap-1.5">
             <label className={labelClass} htmlFor="booking-preference">
-              Preferred contact
+              {t.booking.preference}
             </label>
             <select
               id="booking-preference"
-              value={preference}
-              onChange={(e) => setPreference(e.target.value)}
+              value={preferenceIndex}
+              onChange={(e) => setPreferenceIndex(Number(e.target.value))}
               className={fieldClass}
             >
-              {contactPreferences.map((option) => (
-                <option key={option} value={option}>
+              {t.booking.preferences.map((option, index) => (
+                <option key={option} value={index}>
                   {option}
                 </option>
               ))}
@@ -152,21 +159,21 @@ export function BookingModal() {
 
           <div className="flex flex-col gap-1.5">
             <label className={labelClass} htmlFor="booking-notes">
-              Notes (optional)
+              {t.booking.notes}
             </label>
             <textarea
               id="booking-notes"
               rows={3}
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
-              placeholder="Tell us about your smile goals or the best time to reach you"
+              placeholder={t.booking.notesPlaceholder}
               className={cn(fieldClass, "resize-none")}
             />
           </div>
 
           <button type="submit" className={cn(btnPrimary, "w-full")}>
             <CalendarCheck className="size-[1.125rem]" />
-            Send Request
+            {t.booking.submit}
           </button>
         </form>
       </DialogContent>

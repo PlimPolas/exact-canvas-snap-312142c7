@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { smileCases } from "@/config/clinic";
+import { useI18n } from "@/i18n";
 import { SectionHeader } from "./ui-kit";
 import { BeforeAfterSlider } from "./BeforeAfterSlider";
 import { Button } from "@/components/ui/button";
 
 export function BeforeAfter() {
   const [index, setIndex] = useState(0);
+  const { t } = useI18n();
   const total = smileCases.length;
 
   const go = (direction: 1 | -1) => setIndex((current) => (current + direction + total) % total);
@@ -17,16 +19,16 @@ export function BeforeAfter() {
     <section id="transformations" className="scroll-mt-24 bg-background px-4 py-16 sm:px-8 lg:px-16 lg:py-24">
       <div className="mx-auto w-full max-w-[1100px]">
         <SectionHeader
-          badge="Real Patient Results"
-          title="Smile Transformations"
-          desc="Explore real before-and-after results and see how personalized cosmetic dentistry can transform a smile while preserving a natural, balanced appearance."
+          badge={t.beforeAfter.badge}
+          title={t.beforeAfter.title}
+          desc={t.beforeAfter.desc}
         />
 
         <div
           className="relative mt-10"
           role="group"
           aria-roledescription="carousel"
-          aria-label="Smile transformation cases"
+          aria-label={t.beforeAfter.carouselLabel}
         >
           <div key={active.caseNumber} className="animate-in fade-in duration-500">
             <BeforeAfterSlider
@@ -48,7 +50,7 @@ export function BeforeAfter() {
                 type="button"
                 variant="outline"
                 size="icon"
-                aria-label="Previous case"
+                aria-label={t.beforeAfter.previous}
                 onClick={() => go(-1)}
                 className="size-11 rounded-full border-border transition-transform hover:-translate-x-0.5 hover:border-primary hover:text-primary"
               >
@@ -58,7 +60,7 @@ export function BeforeAfter() {
                 type="button"
                 variant="outline"
                 size="icon"
-                aria-label="Next case"
+                aria-label={t.beforeAfter.next}
                 onClick={() => go(1)}
                 className="size-11 rounded-full border-border transition-transform hover:translate-x-0.5 hover:border-primary hover:text-primary"
               >

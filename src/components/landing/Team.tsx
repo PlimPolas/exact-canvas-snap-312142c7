@@ -1,5 +1,6 @@
 import { Award, Check, Microscope, Smile, Sparkles } from "lucide-react";
-import { about, clinic, differentiators } from "@/config/clinic";
+import { drPortrait } from "@/config/clinic";
+import { useI18n } from "@/i18n";
 import { useBooking } from "./booking-context";
 import { Badge } from "./ui-kit";
 import { Button } from "@/components/ui/button";
@@ -13,6 +14,7 @@ const icons = {
 
 export function Team() {
   const { openBooking } = useBooking();
+  const { t } = useI18n();
 
   return (
     <section id="about" className="scroll-mt-24 overflow-hidden bg-surface-alt px-4 py-16 sm:px-8 lg:px-16 lg:py-24">
@@ -20,8 +22,8 @@ export function Team() {
         <div className="grid items-center gap-10 lg:grid-cols-[0.85fr_1fr] lg:gap-16">
           <div className="relative overflow-hidden rounded-2xl border border-border shadow-strong">
             <img
-              src={about.portrait}
-              alt={`${clinic.dentist} — ${clinic.dentistRole}`}
+              src={drPortrait}
+              alt={t.about.portraitAlt}
               loading="lazy"
               width={612}
               height={808}
@@ -30,16 +32,16 @@ export function Team() {
           </div>
 
           <div className="flex flex-col items-start gap-5">
-            <Badge>{about.badge}</Badge>
+            <Badge>{t.about.badge}</Badge>
             <h2 className="font-serif text-[clamp(2rem,4.2vw,3.25rem)] font-normal leading-[1.08] tracking-[-0.01em] text-foreground">
-              {about.title}
+              {t.about.title}
             </h2>
             <span className="font-heading text-[0.8125rem] font-bold uppercase tracking-[0.1em] text-primary">
-              {clinic.dentistRole}
+              {t.about.role}
             </span>
 
             <div className="flex flex-col gap-4">
-              {about.paragraphs.map((paragraph) => (
+              {t.about.paragraphs.map((paragraph) => (
                 <p key={paragraph} className="text-[0.9375rem] leading-relaxed text-text-secondary md:text-base">
                   {paragraph}
                 </p>
@@ -47,7 +49,7 @@ export function Team() {
             </div>
 
             <ul className="mt-1 grid w-full gap-2.5 sm:grid-cols-2">
-              {about.credentials.map((item) => (
+              {t.about.credentials.map((item) => (
                 <li key={item} className="flex items-start gap-2.5 text-[0.875rem] font-medium text-text-secondary">
                   <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full gradient-primary text-primary-foreground">
                     <Check className="size-3" />
@@ -62,13 +64,13 @@ export function Team() {
               onClick={() => openBooking()}
               className="mt-3 h-12 rounded-full px-7 text-sm font-medium"
             >
-              Book Your Smile Consultation
+              {t.about.cta}
             </Button>
           </div>
         </div>
 
         <div className="mt-16 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-          {differentiators.map((item) => {
+          {t.about.differentiators.map((item) => {
             const Icon = icons[item.icon as keyof typeof icons] ?? Sparkles;
             return (
               <article
