@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react";
 import { CalendarCheck, Menu, Phone, X } from "lucide-react";
-import { brand, clinic, navLinks } from "@/config/clinic";
+import { brand, clinic } from "@/config/clinic";
+import { useI18n } from "@/i18n";
 import { useBooking } from "./booking-context";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 import { cn } from "@/lib/utils";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const { openBooking } = useBooking();
+  const { t } = useI18n();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -32,9 +35,9 @@ export function Navbar() {
             ? "border-b border-border/70 bg-background/92 shadow-soft backdrop-blur-2xl"
             : "bg-transparent",
         )}
-        aria-label="Main navigation"
+        aria-label={t.nav.ariaLabel}
       >
-        <div className="mx-auto flex w-full max-w-[1440px] items-center justify-between gap-6">
+        <div className="mx-auto flex w-full max-w-[1440px] items-center justify-between gap-4">
           <a href="#top" className="z-10 flex items-center" aria-label={clinic.name}>
             <img
               src={scrolled ? brand.logoDark : brand.logoWhite}
@@ -51,7 +54,7 @@ export function Navbar() {
               scrolled ? "border-border bg-surface-alt" : "border-white/12 bg-white/[0.07]",
             )}
           >
-            {navLinks.map((link) => (
+            {t.nav.links.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
@@ -68,6 +71,8 @@ export function Navbar() {
           </div>
 
           <div className="z-10 flex items-center gap-3">
+            <LanguageSwitcher tone={scrolled ? "light" : "dark"} className="hidden lg:inline-flex" />
+
             <button
               type="button"
               onClick={() => openBooking()}
@@ -79,13 +84,13 @@ export function Navbar() {
               )}
             >
               <CalendarCheck className="size-4" />
-              <span>Book Consultation</span>
+              <span>{t.nav.book}</span>
             </button>
 
             <button
               type="button"
               onClick={() => setMenuOpen(true)}
-              aria-label="Open menu"
+              aria-label={t.nav.openMenu}
               className={cn(
                 "flex size-11 items-center justify-center rounded-lg border transition-colors lg:hidden",
                 scrolled
@@ -99,7 +104,7 @@ export function Navbar() {
         </div>
       </nav>
 
-      {/* Menu mobile */}
+      {/* Mobile menu */}
       <div
         className={cn(
           "fixed inset-0 z-95 flex flex-col bg-background/98 px-8 pb-10 pt-24 backdrop-blur-2xl transition-transform duration-300 lg:hidden",
@@ -112,14 +117,14 @@ export function Navbar() {
         <button
           type="button"
           onClick={() => setMenuOpen(false)}
-          aria-label="Close menu"
+          aria-label={t.nav.closeMenu}
           className="absolute right-5 top-5 flex size-11 items-center justify-center rounded-full border border-border bg-surface-alt text-foreground"
         >
           <X className="size-5" />
         </button>
 
         <div className="flex flex-col gap-1">
-          {navLinks.map((link) => (
+          {t.nav.links.map((link) => (
             <a
               key={link.href}
               href={link.href}
@@ -132,6 +137,7 @@ export function Navbar() {
         </div>
 
         <div className="mt-auto flex flex-col gap-3 pt-8">
+          <LanguageSwitcher tone="light" className="self-start" />
           <button
             type="button"
             onClick={() => {
@@ -141,7 +147,7 @@ export function Navbar() {
             className="inline-flex w-full items-center justify-center gap-2.5 rounded-lg gradient-primary px-7 py-4 font-heading text-sm font-bold uppercase tracking-[0.04em] text-primary-foreground"
           >
             <CalendarCheck className="size-5" />
-            Book Your Smile Consultation
+            {t.nav.bookLong}
           </button>
           <a
             href={clinic.phoneHref}

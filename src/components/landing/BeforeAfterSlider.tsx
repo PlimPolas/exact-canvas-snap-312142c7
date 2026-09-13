@@ -1,5 +1,6 @@
 import { useCallback, useRef, useState } from "react";
 import { MoveHorizontal } from "lucide-react";
+import { format, useI18n } from "@/i18n";
 import { cn } from "@/lib/utils";
 
 type Props = {
@@ -14,6 +15,7 @@ const HANDLE_ZONE = 44;
 
 export function BeforeAfterSlider({ caseNumber, beforeImage, afterImage, priority, onSwipe }: Props) {
   const [position, setPosition] = useState(50);
+  const { t } = useI18n();
   const containerRef = useRef<HTMLDivElement>(null);
   const mode = useRef<"idle" | "compare" | "swipe">("idle");
   const startX = useRef(0);
@@ -68,7 +70,7 @@ export function BeforeAfterSlider({ caseNumber, beforeImage, afterImage, priorit
       >
         <img
           src={afterImage}
-          alt={`After dental result — Case ${caseNumber}`}
+          alt={format(t.beforeAfter.afterAlt, { case: caseNumber })}
           loading={priority ? "eager" : "lazy"}
           draggable={false}
           className="absolute inset-0 size-full object-cover"
@@ -79,15 +81,15 @@ export function BeforeAfterSlider({ caseNumber, beforeImage, afterImage, priorit
         >
           <img
             src={beforeImage}
-            alt={`Before dental result — Case ${caseNumber}`}
+            alt={format(t.beforeAfter.beforeAlt, { case: caseNumber })}
             loading={priority ? "eager" : "lazy"}
             draggable={false}
             className="absolute inset-0 size-full object-cover"
           />
         </div>
 
-        <span className={cn(labelClass, "left-3 sm:left-4")}>Before</span>
-        <span className={cn(labelClass, "right-3 sm:right-4")}>After</span>
+        <span className={cn(labelClass, "left-3 sm:left-4")}>{t.beforeAfter.before}</span>
+        <span className={cn(labelClass, "right-3 sm:right-4")}>{t.beforeAfter.after}</span>
 
         <div className="pointer-events-none absolute inset-y-0 z-10 w-px bg-white/85" style={{ left: `${position}%` }} aria-hidden="true">
           <span className="absolute left-1/2 top-1/2 flex size-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-white/70 bg-white/95 text-foreground shadow-strong">
@@ -97,7 +99,7 @@ export function BeforeAfterSlider({ caseNumber, beforeImage, afterImage, priorit
       </div>
 
       <label className="sr-only" htmlFor={`compare-${caseNumber}`}>
-        Compare before and after — Case {caseNumber}
+        {format(t.beforeAfter.compareLabel, { case: caseNumber })}
       </label>
       <input
         id={`compare-${caseNumber}`}
