@@ -1,19 +1,17 @@
 import { Quote, Star } from "lucide-react";
-import { reviews } from "@/config/clinic";
+import { useI18n } from "@/i18n";
 import { SectionHeader } from "./ui-kit";
 
 export function Reviews() {
+  const { t } = useI18n();
+
   return (
     <section id="reviews" className="scroll-mt-24 bg-surface-alt px-4 py-16 sm:px-8 lg:px-16 lg:py-24">
       <div className="mx-auto w-full max-w-[1440px]">
-        <SectionHeader
-          badge="Patient Reviews"
-          title="A 4.9-star reputation in Newport Beach"
-          desc="What patients say about care with Dr. Daniele Green."
-        />
+        <SectionHeader badge={t.reviews.badge} title={t.reviews.title} desc={t.reviews.desc} />
 
         <div className="mt-10 grid gap-5 md:grid-cols-3">
-          {reviews.map((review) => (
+          {t.reviews.items.map((review) => (
             <figure
               key={review.name}
               className="flex flex-col gap-4 rounded-2xl border border-border bg-background p-6 shadow-soft transition-all hover:-translate-y-1 hover:shadow-strong"

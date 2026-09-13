@@ -1,10 +1,12 @@
-import { stats } from "@/config/clinic";
+import { useI18n } from "@/i18n";
 
 export function Stats() {
+  const { t } = useI18n();
+
   return (
-    <section className="bg-background px-4 py-14 sm:px-8 lg:px-16 lg:py-20" aria-label="Números da clínica">
+    <section className="bg-background px-4 py-14 sm:px-8 lg:px-16 lg:py-20" aria-label={t.stats.ariaLabel}>
       <div className="mx-auto grid w-full max-w-[1440px] grid-cols-2 gap-x-6 gap-y-9 lg:grid-cols-4">
-        {stats.map((stat) => (
+        {t.stats.items.map((stat) => (
           <div key={stat.label} className="flex flex-col items-center gap-2 text-center">
             <span className="font-heading text-[clamp(1.75rem,4.5vw,2.75rem)] font-extrabold leading-none text-gradient">
               {stat.value}

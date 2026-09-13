@@ -1,4 +1,4 @@
-import { faq } from "@/config/clinic";
+import { useI18n } from "@/i18n";
 import {
   Accordion,
   AccordionContent,
@@ -8,13 +8,15 @@ import {
 import { SectionHeader } from "./ui-kit";
 
 export function Faq() {
+  const { t } = useI18n();
+
   return (
     <section id="faq" className="scroll-mt-24 bg-background px-4 py-16 sm:px-8 lg:px-16 lg:py-24">
       <div className="mx-auto w-full max-w-[900px]">
-        <SectionHeader badge="Questions" title="What patients ask before their first visit" />
+        <SectionHeader badge={t.faq.badge} title={t.faq.title} />
 
         <Accordion type="single" collapsible className="mt-9 flex flex-col gap-3">
-          {faq.map((item, index) => (
+          {t.faq.items.map((item, index) => (
             <AccordionItem
               key={item.q}
               value={`item-${index}`}

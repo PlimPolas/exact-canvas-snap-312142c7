@@ -1,13 +1,14 @@
 import { ShieldCheck } from "lucide-react";
-import { partners } from "@/config/clinic";
+import { useI18n } from "@/i18n";
 
 export function Marquee() {
-  const items = [...partners, ...partners];
+  const { t } = useI18n();
+  const items = [...t.marquee.items, ...t.marquee.items];
 
   return (
     <section
       className="relative overflow-hidden border-y border-border bg-surface-alt py-6"
-      aria-label="Convênios e certificações"
+      aria-label={t.marquee.ariaLabel}
     >
       <div className="marquee-track items-center gap-10 sm:gap-14">
         {items.map((item, index) => (
