@@ -67,26 +67,28 @@ function LandingPage() {
   };
 
   return (
-    <BookingProvider>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <Navbar />
-      <main>
-        <Hero />
-        <Marquee />
-        <Stats />
-        <Treatments />
-        <BeforeAfter />
-        <Team />
-        <Infra />
-        <Reviews />
-        <Faq />
-        <Location />
-        <CtaBanner />
-      </main>
-      <Footer />
-      <CallFab />
-      <BookingModal />
-      <Toaster position="top-center" richColors />
-    </BookingProvider>
+    <LanguageProvider>
+      <BookingProvider>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        <Navbar />
+        <main>
+          <Hero />
+          <Marquee />
+          <Stats />
+          <Treatments />
+          <BeforeAfter />
+          <Team />
+          <Infra />
+          <Reviews />
+          <Faq />
+          <Location />
+          <CtaBanner />
+        </main>
+        <Footer />
+        <CallFab />
+        <BookingModal />
+        <Toaster position="top-center" richColors />
+      </BookingProvider>
+    </LanguageProvider>
   );
 }
