@@ -79,12 +79,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Coastal Smiles Newport Beach" },
       { name: "description", content: "Personalized concierge cosmetic dentistry in Newport Beach with Dr. Daniele Green, DDS." },
-      { name: "author", content: "Lovable" },
       { property: "og:title", content: "Coastal Smiles Newport Beach" },
       { property: "og:description", content: "Personalized concierge cosmetic dentistry in Newport Beach with Dr. Daniele Green, DDS." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       {
