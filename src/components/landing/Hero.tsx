@@ -19,7 +19,7 @@ export function Hero() {
           src={heroPoster}
           alt={t.hero.imageAlt}
           fetchPriority="high"
-          className="hero-zoom size-full object-cover object-[62%_top] md:object-[78%_top] lg:object-[72%_15%]"
+          className="hero-zoom size-full object-cover object-[66%_center] sm:object-[64%_center] lg:object-[58%_center]"
         />
         <div className="hero-overlay absolute inset-0 z-2" />
       </div>

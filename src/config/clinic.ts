@@ -23,7 +23,7 @@ import case7Before from "@/assets/case7-an.jpg.asset.json";
 import case7After from "@/assets/case7-dp.jpg.asset.json";
 import logoWhiteAsset from "@/assets/logo-white.png.asset.json";
 import logoDarkAsset from "@/assets/logo-dark.png.asset.json";
-import drHeroAsset from "@/assets/dr-green-hero.jpg.asset.json";
+import patientHeroAsset from "@/assets/coastal-smiles-patient-hero.jpg.asset.json";
 import drPortraitAsset from "@/assets/dr-green-portrait.jpg.asset.json";
 import drOfficeAsset from "@/assets/dr-green-office.jpg.asset.json";
 import drScannerAsset from "@/assets/dr-green-scanner.jpg.asset.json";
@@ -34,7 +34,7 @@ export const brand = {
   logoAlt: "Coastal Smiles Newport Beach",
 };
 
-export const heroPoster = drHeroAsset.url;
+export const heroPoster = patientHeroAsset.url;
 export const drPortrait = drPortraitAsset.url;
 export const ctaImage = drOfficeAsset.url;
 
